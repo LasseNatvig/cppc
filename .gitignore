@@ -265,3 +265,7 @@ __pycache__/
 */*/FLTK_base/FLTK_base.vcxproj
 */*/FLTK_base/FLTK_base.vcxproj.filters
 */*/FLTK_PPP2.sln
+/lec1/Ex1/Ex1.sln
+/lec1/Ex1/Ex1/Ex1.vcxproj.filters
+/lec1/Ex1/Ex1/Ex1.vcxproj
+/lec1/Ex1/Ex1/std_lib_facilities.h
