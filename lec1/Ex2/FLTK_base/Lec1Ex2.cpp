@@ -9,8 +9,8 @@ int main() {
 
 	Polygon poly;
 	poly.add(Point{ 300, 100 });
-	poly.add(Point{ 550, 50 });
-	poly.add(Point{ 40, 200 });
+	poly.add(Point{ 350, 50 });
+	poly.add(Point{ 400, 200 });
 	poly.set_color(Color::red);
 
 	win.attach(poly);
