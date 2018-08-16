@@ -259,14 +259,9 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
-/lec1/Ex2/FLTK_1.3.4-2/FL/abi-version.h
-/lec1/Ex2/FLTK_1.3.4-2
-/lec1/Ex2/FLTK_base/PPP
-/lec1/Ex2/FLTK_base/FLTK_base.vcxproj
-/lec1/Ex2/FLTK_base/FLTK_base.vcxproj.filters
-/lec1/Ex2/FLTK_PPP2.sln
-/lec1/Ex3/FLTK_1.3.4-2
-/lec1/Ex3/FLTK_base/PPP
-/lec1/Ex3/FLTK_base/FLTK_base.vcxproj
-/lec1/Ex3/FLTK_base/FLTK_base.vcxproj.filters
-/lec1/Ex3/FLTK_PPP2.sln
+*/*/FLTK_1.3.4-2/FL/abi-version.h
+*/*/FLTK_1.3.4-2
+*/*/FLTK_base/PPP
+*/*/FLTK_base/FLTK_base.vcxproj
+*/*/FLTK_base/FLTK_base.vcxproj.filters
+*/*/FLTK_PPP2.sln
