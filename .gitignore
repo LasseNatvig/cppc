@@ -274,3 +274,7 @@ __pycache__/
 /lec1/Ex4/Ex4/Ex4.vcxproj.filters
 /lec1/Ex4/Ex4.sln
 /lec1/Ex4/std_lib_facilities.h
+/lec1/Ex5/std_lib_facilities.h
+/lec1/Ex5/Ex5.sln
+/lec1/Ex5/Ex5/Ex5.vcxproj.filters
+*.vcxproj
