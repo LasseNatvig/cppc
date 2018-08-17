@@ -1,4 +1,4 @@
-// Lec1Ex4.cpp      Demonstrates simple use of vector
+// Lec1Ex5.cpp      Demonstrates simple use of vector
 #include "std_lib_facilities.h"
 int main() {
 	vector<int> numbers{ -3, 3, 5, 8888 };
