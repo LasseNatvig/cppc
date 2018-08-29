@@ -25,7 +25,7 @@ int main() {
 	vector<Circle> circ;
 	for (int i = 0; i < xValues.size(); i++) {
 	 // Circle c(); // Cannot be used, see error, missing default constructor, MS-VS error C2280
-	 // SPØR LASSE EGGEN om dette      
+	 // SPØR LASSE EGGEN om dette
 	 //
 	 Circle c{ Point{ 3 * i,3 * i },4 };
 	 c.set_color(Color::red);
