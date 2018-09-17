@@ -1,6 +1,6 @@
 /* Lec1Ex4.cpp --- Demonstrates simple use of vector: 
 - declaration and initialization
-- three ways to iterate through all stored elements
+- different ways to iterate through all stored elements
 - how to append new elements
 - size of vector
 - how to update an element in a vector
@@ -8,6 +8,8 @@
 #include "std_lib_facilities.h"
 int main() {
 	vector<int> numbers{ -3, 3, 5, 8888 };
+
+	vector<int> v{1, 4, 2, 3, 5};
 
 	cout << "The numbers are:\n"; // unsigned needed to avoid warning in MS-VS
 	for (unsigned int i = 0; i < numbers.size(); i++) {
