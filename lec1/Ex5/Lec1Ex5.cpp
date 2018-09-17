@@ -2,10 +2,10 @@
 #include "std_lib_facilities.h"
 int main() {
 	cout << "Enter your name (followed by return/enter)\n";
-	string name = ""; // string object name initialized to empty string // TODO needed?, is there default initializer?
+    string name = ""; // string object name initialized to empty string // TODO needed?, is there default initializer?
 	cin >> name; // read a string from cin (= console in, keyboard)
 	string s1 = "Hello"; // sets s1 to Hello
-	string s2(",have a nice day!"); // sets s2 to a longer text-string, containing blanks. Also alternative syntax () instead of =
+	string s2(", have a nice day!"); // sets s2 to a longer text-string, containing blanks. Also alternative syntax () instead of =
 	string s3 = s1 + " " + name + s2; // + is defined as a concatenate operator for string
 	cout << "1) " << s3 << endl;
 
