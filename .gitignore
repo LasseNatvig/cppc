@@ -278,3 +278,5 @@ __pycache__/
 /lec1/Ex5/Ex5.sln
 /lec1/Ex5/Ex5/Ex5.vcxproj.filters
 *.vcxproj
+*.sln
+*.filters
