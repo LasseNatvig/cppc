@@ -51,7 +51,7 @@ int main() {
 	Open_polyline oplMin;
 	for (int i = 0; i < minTemp.size(); i++) {
 		int temp = minTemp[i];
-		int xCoord = origo.x + ((i * 330) / 11);  // Two lines equal to those for oplMax 
+		int xCoord = origo.x + ((i * 330) / 11);                      // Two lines equal to those for oplMax 
 		int yCoord = origo.y - (210 * (temp - totalMin)) / ySpan;
 		oplMin.add(Point{ xCoord, yCoord});
 	}
