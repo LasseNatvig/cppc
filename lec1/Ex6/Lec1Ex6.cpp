@@ -2,7 +2,6 @@
 #include "std_lib_facilities.h"
 /* - these lines are needed if you do not include std_lib_facilities.h
 #include<iostream>  
-#include<iomanip>
 using namespace std; */
 #include<iomanip>
 int main() {
