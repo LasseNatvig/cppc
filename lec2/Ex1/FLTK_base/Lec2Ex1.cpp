@@ -20,14 +20,18 @@ int min(vector<int> v) {
 	return min;
 }
 
+constexpr int xAxisSize = 330;
+constexpr int yAxisSize = 210;
+constexpr int maxMonthNo = 11;
+
 int main() {
 	Point tl{ 100, 100 }; // tl is Top-Left corner of our window
 	Point origo{ 40, 255 };
 	Simple_window win(tl, 400, 300, "Lecture 1 Example 3b");
-	Axis xa(Axis::x, origo, 330, 11, "Month");
+	Axis xa(Axis::x, origo, xAxisSize, maxMonthNo, "Month");
 	win.attach(xa); // attach xa to the window, win
 	xa.set_color(Color::black);
-	Axis ya(Axis::y, origo, 210, 7, "Celsius");
+	Axis ya(Axis::y, origo, yAxisSize, 7, "Celsius");
 	win.attach(ya); // attach ya
 	ya.set_color(Color::black);
 
@@ -41,8 +45,8 @@ int main() {
 	Open_polyline oplMax;
 	for (int i = 0; i < maxTemp.size(); i++) {
 		int temp = maxTemp[i];
-		int xCoord = origo.x + ((i * 330) / 11);  // Can be simplified since 330/11 = 30, but is kept like this for readability !?
-		int yCoord = origo.y - (210 * (temp - totalMin)) / ySpan;
+		int xCoord = origo.x + ((i * xAxisSize) / maxMonthNo);  // Can be simplified since 330/11 = 30, but is kept like this for readability !?
+		int yCoord = origo.y - (yAxisSize * (temp - totalMin)) / ySpan;
 		oplMax.add(Point{ xCoord, yCoord });
 	}
 	oplMax.set_color(Color::red);
