@@ -24,6 +24,14 @@ constexpr int xAxisSize = 330;
 constexpr int yAxisSize = 210;
 constexpr int maxMonthNo = 11;
 
+int xCoord(Point origo, int i) {
+	return(origo.x + ((i * xAxisSize) / maxMonthNo));
+}
+
+int yCoord(Point origo, int temp, int totalMin, int ySpan) {
+	return(origo.y - (yAxisSize * (temp - totalMin)) / ySpan);
+}
+
 int main() {
 	Point tl{ 100, 100 }; // tl is Top-Left corner of our window
 	Point origo{ 40, 255 };
@@ -44,20 +52,14 @@ int main() {
 
 	Open_polyline oplMax;
 	for (int i = 0; i < maxTemp.size(); i++) {
-		int temp = maxTemp[i];
-		int xCoord = origo.x + ((i * xAxisSize) / maxMonthNo);  // Can be simplified since 330/11 = 30, but is kept like this for readability !?
-		int yCoord = origo.y - (yAxisSize * (temp - totalMin)) / ySpan;
-		oplMax.add(Point{ xCoord, yCoord });
+		oplMax.add(Point{ xCoord(origo,i), yCoord(origo, maxTemp[i], totalMin, ySpan) });
 	}
 	oplMax.set_color(Color::red);
 	win.attach(oplMax);
 
 	Open_polyline oplMin;
 	for (int i = 0; i < minTemp.size(); i++) {
-		int temp = minTemp[i];
-		int xCoord = origo.x + ((i * xAxisSize) / maxMonthNo);    // Two lines equal to those for oplMax 
-		int yCoord = origo.y - (yAxisSize * (temp - totalMin)) / ySpan;
-		oplMin.add(Point{ xCoord, yCoord });
+		oplMin.add(Point{ xCoord(origo,i), yCoord(origo, minTemp[i], totalMin, ySpan) });
 	}
 	oplMin.set_color(Color::blue);
 	win.attach(oplMin);
