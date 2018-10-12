@@ -32,6 +32,11 @@ int main() {
 		cout << numbers[i] << " ";
 	}
 
+	cout << "\n... using for range:\n";
+	for (int j : numbers) {
+		cout << j << " ";
+	}
+
 	cout << "\n... using the recommended auto and for range:\n";
 	for (auto e : numbers) {
 		cout << e << " ";
