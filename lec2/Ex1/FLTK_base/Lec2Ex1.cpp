@@ -64,5 +64,16 @@ int main() {
 	oplMin.set_color(Color::blue);
 	win.attach(oplMin);
 
+	constexpr int backX = 100;
+	constexpr int backY = 50;
+	constexpr int back_width = 140;
+	constexpr int back_height = 50;
+	Rectangle background{ Point{backX, backY}, back_width, back_height }; // PPP 12.7.6
+	background.set_fill_color(Color::yellow);
+	win.attach(background);
+	fl_color(Color::dark_red); // FLTK function; Sets the color for all subsequent drawing operations. 
+	Text where{ Point{110, 75}, "Trondheim - Norway" };
+	win.attach(where);
+	
 	win.wait_for_button();
 };
