@@ -17,6 +17,6 @@ int main() {
 	cout << "The length of string s3 as int: " << s3.length() <<
 		" and as string: " << to_string(s3.length());
 
-	cin.ignore();
+	cin.ignore(); // without this we need two call to keep_window_open!
 	keep_window_open();  
 }

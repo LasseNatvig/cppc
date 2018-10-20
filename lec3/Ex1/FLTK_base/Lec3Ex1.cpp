@@ -10,6 +10,8 @@ int main() {
 			vr.push_back(new Rectangle{ Point{ i*20, j*20 }, 20, 20 });
 			vr[vr.size() - 1].set_fill_color(Color{ i * 16 + j });
 			win.attach(vr[vr.size() - 1]);
+
+			cout << '[' << i << ',' << j << "] colorvalue: " << i * 16 + j << endl;
 		}
 	win.wait_for_button();
 };

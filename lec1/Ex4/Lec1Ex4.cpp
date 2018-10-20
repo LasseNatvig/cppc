@@ -4,7 +4,7 @@
 - how to append new elements
 - size of vector
 - how to update an element in a vector
-- function treturning a vector
+- function returning a vector
 */
 #include "std_lib_facilities.h"
 
