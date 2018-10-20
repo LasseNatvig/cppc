@@ -1,4 +1,4 @@
-// Lec2Ex1.cpp, an improvement of Lec1Ex3b.cpp  
+// Lec2Ex4.cpp, an improvement of Lec1Ex5b.cpp  
 #include "Graph.h"
 #include "Simple_window.h"
 using namespace Graph_lib;
@@ -35,11 +35,11 @@ int yCoord(Point origo, int temp, int totalMin, int ySpan) {
 int main() {
 	Point tl{ 100, 100 }; // tl is Top-Left corner of our window
 	Point origo{ 40, 255 };
-	Simple_window win(tl, 400, 300, "Lecture 1 Example 3b");
-	Axis xa(Axis::x, origo, xAxisSize, maxMonthNo, "Month");
+	Simple_window win(tl, 400, 300, "Lecture 2 Example 5");
+	Axis xa(Axis::x, origo, xAxisSize, maxMonthNo, "Month (August 2017 .. July 2018)");
 	win.attach(xa); // attach xa to the window, win
 	xa.set_color(Color::black);
-	Axis ya(Axis::y, origo, yAxisSize, 7, "Celsius");
+	Axis ya(Axis::y, origo, yAxisSize, 7, "Celsius (-5 .. +25)");
 	win.attach(ya); // attach ya
 	ya.set_color(Color::black);
 
@@ -66,8 +66,8 @@ int main() {
 
 	constexpr int backX = 100;
 	constexpr int backY = 50;
-	constexpr int back_width = 140;
-	constexpr int back_height = 50;
+	constexpr int back_width = 150;
+	constexpr int back_height = 45;
 	Rectangle background{ Point{backX, backY}, back_width, back_height }; // PPP 12.7.6
 	background.set_fill_color(Color::yellow);
 	win.attach(background);

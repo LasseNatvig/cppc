@@ -1,4 +1,4 @@
-// Lec1Ex6.cpp - casting
+// Lec1Ex2.cpp - casting
 #include "../../std_lib_facilities.h"
 /* - these lines are needed if you do not include std_lib_facilities.h
 #include<iostream>
@@ -15,7 +15,7 @@ int main() {
 
 	// Old style cast
 	cout << "Old style (double)i: " << (double)i << endl;
-	
+
 	keep_window_open();
 	return 0;
 }
