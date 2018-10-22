@@ -35,7 +35,7 @@ int yCoord(Point origo, int temp, int totalMin, int ySpan) {
 int main() {
 	Point tl{ 100, 100 }; // tl is Top-Left corner of our window
 	Point origo{ 40, 255 };
-	Simple_window win(tl, 400, 300, "Lecture 2 Example 5");
+	Simple_window win(tl, 400, 300, "Lecture 2 Example 4");
 	Axis xa(Axis::x, origo, xAxisSize, maxMonthNo, "Month (August 2017 .. July 2018)");
 	win.attach(xa); // attach xa to the window, win
 	xa.set_color(Color::black);
@@ -72,8 +72,8 @@ int main() {
 	background.set_fill_color(Color::yellow);
 	win.attach(background);
 	fl_color(Color::dark_red); // FLTK function; Sets the color for all subsequent drawing operations. 
-	Text where{ Point{110, 75}, "Trondheim - Norway" };
-	win.attach(where);
+	Text trd{ Point{110, 75}, "Trondheim - Norway" };
+	win.attach(trd);
 	
 	win.wait_for_button();
 };
