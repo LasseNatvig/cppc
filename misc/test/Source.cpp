@@ -2,16 +2,29 @@
 #include<fcntl.h>
 #include<io.h>
 int main() {
-	char c = 'x';
-	bool found = false;
-	string str = "ABCDdefg";
-	for (int i = 0; i < str.length(); ++i) {
-		if (str[i] == c) {
-			found = true;
-			break;
-		}
-	}
+	//char c = 'x';
+	//bool found = false;
+	//string str = "ABCDdefg";
+	//for (int i = 0; i < str.length(); ++i) {
+	//	if (str[i] == c) {
+	//		found = true;
+	//		break;
+	//	}
+	//}
+
 	
+	//char c = 'y';
+	//int i1 = c;
+	//int i2 = 'y';
+	//cout << (c - 1) << ' ' << (c + 1) << endl;
+	//char c1 = c - 1;
+	//char c2 = i2 + 1;
+	//cout << c1 << ' ' << c2 << endl;
+	//c2 = toupper(c2);
+	//cout << c1 - 'a' << ' ' << c2 << endl;
+
+	//cout << "fin";
+
 	//_setmode(_fileno(stdout), _O_U16TEXT);
 	////char c = 'x';
 	////int i1 = c;
