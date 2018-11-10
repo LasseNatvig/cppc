@@ -20,6 +20,7 @@ int main() {
 	vector<int> numbers{ -3, 3, 5, 8888 };
 	vector<int> v{1, 4, 2, 3, 5};
 
+	// a)
 	cout << "The numbers are:\n"; // unsigned int needed to avoid warning in MS-VS
 	for (unsigned int i = 0; i < numbers.size(); i++) {
 		cout << numbers[i] << " ";
@@ -27,17 +28,20 @@ int main() {
 
 	numbers[0] = -4;
 	cout << "\n... after changing its first element:\n";
+
+	// b)
 	unsigned int max = numbers.size();
 	for (unsigned int i = 0; i < max; i++) {
 		cout << numbers[i] << " ";
 	}
 
-	cout << "\n... using for range:\n";
+	// range-for-loop (See PPP page 119)
+	cout << "\n... using range-for-loop:\n";
 	for (int j : numbers) {
 		cout << j << " ";
 	}
 
-	cout << "\n... using the recommended auto and for range:\n";
+	cout << "\n... using the recommended auto and range-for:\n";
 	for (auto e : numbers) {
 		cout << e << " ";
 	}

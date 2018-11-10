@@ -5,7 +5,7 @@ int main() {
 	using namespace Graph_lib;
 	cout << "The New \"Hello, Graphical World!\" message\n";
 	Point tl{ 100, 100 };
-	Simple_window win{ tl, 600, 400, "Canvas" };
+	Simple_window win{ tl, 600, 400, "Canvas" }; 
 
 	Polygon poly;
 	poly.add(Point{ 300, 200 });
