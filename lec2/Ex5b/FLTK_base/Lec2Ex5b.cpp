@@ -1,4 +1,4 @@
-// Lec1Ex5b.cpp (code will be improved!)
+// Lec2Ex5b.cpp (code will be improved!)
 #include "Graph.h"
 #include "Simple_window.h"
 using namespace Graph_lib;
@@ -23,7 +23,7 @@ int min(vector<int> v) {
 int main() {
 	Point tl{ 100, 100 }; // tl is Top-Left corner of our window
 	Point origo{ 40, 255 };
-	Simple_window win(tl, 400, 300, "Lecture 1 Example 5b");
+	Simple_window win(tl, 400, 300, "Lecture 2 Example 5b");
 	Axis xa(Axis::x, origo, 330, 11, "Month");
 	win.attach(xa); // attach xa to the window, win
 	xa.set_color(Color::black);
