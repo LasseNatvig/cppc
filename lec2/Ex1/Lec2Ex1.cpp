@@ -20,7 +20,7 @@ int main() {
 
 	double d = stod("17.18");
 	int i = stoi("190");
-	long l = stol("17184567999");
+	long l = stol("171845679");
 	cout << d << " // " << i << " // " << l << endl;
 
 	keep_window_open();
