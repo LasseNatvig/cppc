@@ -1,25 +1,27 @@
-// Lec2Ex2.cpp, demonstrates two functions with a bug, both can 
-// "fall through the end of the function" and that can give undefined results
+// Lec2Ex2.cpp      Demonstrates simple use of string, and more
 #include "../../std_lib_facilities.h"
-int maxOfTwo(int a, int b) {
-	if (a > b)
-		return a;
-	else if (b > a)
-		return b;
-}
-double maxOfTwo(double a, double b) {
-	if (a > b)
-		return a;
-	else if (b > a)
-		return b;
-}
 int main() {
-	cout << maxOfTwo(2.0, 1.99999999) << endl;
-	cout << maxOfTwo(2.0, 3.0) << endl;
-	cout << maxOfTwo(2.0, 2.0) << endl;
-	cout << maxOfTwo(2.0, 1.9999999999999999) << endl;
+	cout << "Enter your name (followed by return/enter)\n";
+	string name = ""; // string object name initialized to empty string // TODO needed?, is there default initializer?
+	cin >> name; // read a string from cin (= console in, keyboard)
+	string s1 = "Hello"; // sets s1 to Hello, very common syntax
+	string s1a = { "Hello2" }; // alternative, recommended syntax
+	string s2(",have a nice day!"); // sets s2 to a longer text-string, containing blanks. Also alternative syntax () instead of =
+	string s3 = s1 + " " + name + s2; // + is defined as a concatenate operator for string
+	cout << "1) " << s3 << endl;
 
-	cout << maxOfTwo(4, 5) << endl;
-	cout << maxOfTwo(4, 4) << endl; 
+	// We want to insert a blank after the comma, what is its position?
+	int pos = s1.length() + 1 + name.length() + 1;
+	s3.insert(pos, " ");
+	cout << "2) " << s3 << "\n";
+
+	cout << "The length of string s3 as int: " << s3.length() <<
+		" and as string: " << to_string(s3.length()) << endl;
+
+	double d = stod("17.18");
+	int i = stoi("190");
+	long l = stol("171845679");
+	cout << d << " // " << i << " // " << l << endl;
+
 	keep_window_open();
 }

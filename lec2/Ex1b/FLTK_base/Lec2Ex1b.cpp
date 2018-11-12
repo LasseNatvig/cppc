@@ -1,4 +1,4 @@
-// Lec2Ex5b.cpp (code will be improved!)
+// Lec2Ex1b.cpp (code will be improved!)
 #include "Graph.h"
 #include "Simple_window.h"
 using namespace Graph_lib;
