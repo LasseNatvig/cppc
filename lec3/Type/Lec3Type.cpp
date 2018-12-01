@@ -19,7 +19,7 @@ int main() {
 		char c = a;
 		int b = c;
 		if (a != b)	    	//  != means “not equal”
-			cout << "Oops: " << a << "!=" << b << '\n';
+			cout << "Oops: " << a << " != " << b << '\n';
 		else
 			cout << "Wow! We have large characters\n";
 	}
