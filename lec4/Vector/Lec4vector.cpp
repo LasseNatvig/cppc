@@ -50,11 +50,11 @@ int main() {
 	// Assume that we somewhere in the code do not remember if N is the number of elements in the vector (true)
 	// or the last index in the vector (false). We try the last option:
 
-	//// 4) Traditional for loop with range error
-	//for (unsigned int i = 0; i <= N; i++) {
-	//	cout << nums[i] << " ";
-	//}
-	//cout << endl;
+	// 4) Traditional for loop with range error
+	for (unsigned int i = 0; i <= N; i++) {
+		cout << nums[i] << " ";
+	}
+	cout << endl;
 
 	// as above but with try-catch *** HOPEFULLY better error-handling TESTER LITEN ENDRING
 	// PPP 5.6 and 5.6.2
