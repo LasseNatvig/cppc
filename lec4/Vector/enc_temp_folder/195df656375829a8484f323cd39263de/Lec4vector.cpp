@@ -56,7 +56,7 @@ int main() {
 	//}
 	//cout << endl;
 
-	// as above but with try-catch *** HOPEFULLY better error-handling TESTER LITEN ENDRING
+	// as above but with try-catch *** HOPEFULLY better error-handling
 	// PPP 5.6 and 5.6.2
 
 	try {
