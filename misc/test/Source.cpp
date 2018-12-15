@@ -1,7 +1,21 @@
 #include "../../std_lib_facilities.h"
-#include<fcntl.h>
-#include<io.h>
-int main() {
+/*#include<fcntl.h>
+#include<io.h*/
+
+int main()
+try {
+	// …
+	}
+	catch (out_of_range) {	// out_of_range exceptions
+		cerr << "oops – some vector index out of range\n";
+	}
+	catch (...) {		// all other exceptions
+		cerr << "oops – some exception\n";
+	}
+
+
+
+//int main() {
 	//char c = 'x';
 	//bool found = false;
 	//string str = "ABCDdefg";
@@ -36,7 +50,7 @@ int main() {
 	//wcout << L"Diamond: \x2666\n" << endl;
 
 	//keep_window_open();
-}
+//}
 
 
  //void f(int a, int& r, const int& cr) { 
