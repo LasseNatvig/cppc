@@ -1,12 +1,12 @@
-// Lec2Ex4.cpp      Demonstrates ....
-#include "../../std_lib_facilities.h"
+// param_passing.cpp      Demonstrates different methods of parameter passing and performance
+#include "std_lib_facilities.h"
 
 const int maxNum = 5000000;
 
 clock_t readTime() { return clock(); }
 
 void reportTime(clock_t before, string str) {
-	cout << str << " " << "clock_ticks used: " << 
+	cout << str << " " << "clock_ticks used: " <<
 		readTime() - before << endl;
 }
 vector<int> generateVector(unsigned int n) {
@@ -53,7 +53,7 @@ int main() {
 
 	cout << endl;
 	before = readTime();
-	searchVectorConstRef(V,9999 );
+	searchVectorConstRef(V, 9999);
 	reportTime(before, "const reference");
 
 	keep_window_open();

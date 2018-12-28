@@ -1,6 +1,6 @@
-// Lec2Ex3.cpp, demonstrates two functions with a bug, both can 
+// bug_1.cpp, demonstrates two functions with a bug, both can 
 // "fall through the end of the function" and that can give undefined results
-#include "../../std_lib_facilities.h"
+#include "std_lib_facilities.h"
 int maxOfTwo(int a, int b) {
 	if (a > b)
 		return a;
@@ -20,6 +20,6 @@ int main() {
 	cout << maxOfTwo(2.0, 1.9999999999999999) << endl;
 
 	cout << maxOfTwo(4, 5) << endl;
-	cout << maxOfTwo(4, 4) << endl; 
+	cout << maxOfTwo(4, 4) << endl;
 	keep_window_open();
 }

@@ -1,5 +1,5 @@
-// Lec2Ex2.cpp      Demonstrates simple use of string, and more
-#include "../../std_lib_facilities.h"
+// string.cpp      Demonstrates simple use of string, and more
+#include "std_lib_facilities.h"
 int main() {
 	cout << "Enter your name (followed by return/enter)\n";
 	string name = ""; // string object name initialized to empty string // TODO needed?, is there default initializer?
