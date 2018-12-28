@@ -1,5 +1,5 @@
-// Lec3String.cpp   
-#include "../../std_lib_facilities.h"
+// Lstring_2.cpp   
+#include "std_lib_facilities.h"
 int main() {
 	//*****************************************************
 	// A) Correct use of string
