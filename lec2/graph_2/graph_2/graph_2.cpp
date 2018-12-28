@@ -1,4 +1,4 @@
-// Lec2Ex1b.cpp (code will be improved!)
+// graph_2.cpp (code will be improved!)
 #include "Graph.h"
 #include "Simple_window.h"
 using namespace Graph_lib;
@@ -23,7 +23,7 @@ int min(vector<int> v) {
 int main() {
 	Point tl{ 100, 100 }; // tl is Top-Left corner of our window
 	Point origo{ 40, 255 };
-	Simple_window win(tl, 400, 300, "Lecture 2 Example 1b");
+	Simple_window win(tl, 400, 300, "Lecture 2 Example graph_2");
 	Axis xa(Axis::x, origo, 330, 11, "Month");
 	win.attach(xa); // attach xa to the window, win
 	xa.set_color(Color::black);
@@ -38,12 +38,12 @@ int main() {
 	int totalMin = min(minTemp);
 	int ySpan = totalMax - totalMin; // no of degrees to span all of y-axis
 
-	Open_polyline oplMax; 
+	Open_polyline oplMax;
 	for (int i = 0; i < maxTemp.size(); i++) {
 		int temp = maxTemp[i];
 		int xCoord = origo.x + ((i * 330) / 11);  // Can be simplified since 330/11 = 30, but is kept like this for readability !?
 		int yCoord = origo.y - (210 * (temp - totalMin)) / ySpan;
-		oplMax.add(Point{ xCoord, yCoord});
+		oplMax.add(Point{ xCoord, yCoord });
 	}
 	oplMax.set_color(Color::red);
 	win.attach(oplMax);
@@ -53,7 +53,7 @@ int main() {
 		int temp = minTemp[i];
 		int xCoord = origo.x + ((i * 330) / 11);                      // Two lines equal to those for oplMax 
 		int yCoord = origo.y - (210 * (temp - totalMin)) / ySpan;
-		oplMin.add(Point{ xCoord, yCoord});
+		oplMin.add(Point{ xCoord, yCoord });
 	}
 	oplMin.set_color(Color::blue);
 	win.attach(oplMin);

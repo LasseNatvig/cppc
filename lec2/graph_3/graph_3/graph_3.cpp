@@ -1,4 +1,4 @@
-// Lec2Ex1c.cpp, an improvement of Lec2Ex5b.cpp  
+// graph_3.cpp, an improvement of graph_2.cpp  
 #include "Graph.h"
 #include "Simple_window.h"
 using namespace Graph_lib;
@@ -35,7 +35,7 @@ int yCoord(Point origo, int temp, int totalMin, int ySpan) {
 int main() {
 	Point tl{ 100, 100 }; // tl is Top-Left corner of our window
 	Point origo{ 40, 255 };
-	Simple_window win(tl, 400, 300, "Lecture 2 Example 4");
+	Simple_window win(tl, 400, 300, "Lecture 2 Example graph_3");
 	Axis xa(Axis::x, origo, xAxisSize, maxMonthNo, "Month (August 2017 .. July 2018)");
 	win.attach(xa); // attach xa to the window, win
 	xa.set_color(Color::black);
@@ -74,6 +74,6 @@ int main() {
 	fl_color(Color::dark_red); // FLTK function; Sets the color for all subsequent drawing operations. 
 	Text trd{ Point{110, 75}, "Trondheim - Norway" };
 	win.attach(trd);
-	
+
 	win.wait_for_button();
 };
