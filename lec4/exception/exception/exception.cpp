@@ -1,5 +1,5 @@
-/* Lec4vector.cpp
-(See also Lec1Ex4.cpp)
+/* exception.cpp
+(See also vector_intro.cpp)
 *** This file demonstrates:
 - generating random numbers with rand() and srand()
 - (Three ways to loop, repetition from Lec1Ex4)
@@ -7,7 +7,7 @@
 - exceptions try catch
 */
 
-#include "../../std_lib_facilities.h"  // If this is not used, include the three statements below
+#include "std_lib_facilities.h"  // If this is not used, include the three statements below
 //#include <iostream>
 //#include <vector>
 //using namespace std;

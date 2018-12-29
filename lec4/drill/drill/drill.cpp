@@ -1,6 +1,7 @@
-#include "../../std_lib_facilities.h" 
-xxxxxxxxxxxxxxxx HENVIS HVOR I PPP boka ...
-int main() 
+// drill.cpp
+#include "std_lib_facilities.h" 
+
+int main()
 try {
 	//cout << "Success!\n"; // This one is correct
 	//Cout << "Success!\n";
@@ -29,7 +30,7 @@ try {
 	//int x = 4; double d = 5 / (x–2); if (d = 2 * x + 0.5) cout << "Success!\n";
 	//cin << "Success!\n";
 
-	keep_window_open(); 
+	keep_window_open();
 	return 0;
 }
 catch (exception& e) {
