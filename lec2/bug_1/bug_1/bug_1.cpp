@@ -1,5 +1,5 @@
 // bug_1.cpp, demonstrates two functions with a bug, both can 
-// "fall through the end of the function" and that can give undefined results
+// "fall through the end of the function" and give undefined results
 #include "std_lib_facilities.h"
 int maxOfTwo(int a, int b) {
 	if (a > b)
