@@ -71,8 +71,8 @@ int main() {
 	Rectangle background{ Point{backX, backY}, back_width, back_height }; // PPP 12.7.6
 	background.set_fill_color(Color::yellow);
 	win.attach(background);
-	fl_color(Color::dark_red); // FLTK function; Sets the color for all subsequent drawing operations. 
 	Text trd{ Point{110, 75}, "Trondheim - Norway" };
+	trd.set_color(Color::dark_red);
 	win.attach(trd);
 
 	win.wait_for_button();
