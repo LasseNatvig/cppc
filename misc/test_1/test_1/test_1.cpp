@@ -1,18 +1,31 @@
-#include "../../std_lib_facilities.h"
-/*#include<fcntl.h>
-#include<io.h*/
+#include "std_lib_facilities.h"
+ 
+class X {
+public:
+	int m;	  // data member
+	int mf(int v) { // function member
+		int old = m; 
+		m = v; 
+		return old; 
+	}  
+};
+int main() {
+	X var;			// var is a variable of type X 
+	var.m = 7;		// access var’s data member m
+	int x = var.mf(9); // call var’s member function mf()
+}
 
-int main()
-try {
-	// …
-	}
-	catch (out_of_range) {	// out_of_range exceptions
-		cerr << "oops – some vector index out of range\n";
-	}
-	catch (...) {		// all other exceptions
-		cerr << "oops – some exception\n";
-	}
-
+//int main()
+//try {
+//	// …
+//}
+//catch (out_of_range) {	// out_of_range exceptions
+//	cerr << "oops – some vector index out of range\n";
+//}
+//catch (...) {		// all other exceptions
+//	cerr << "oops – some exception\n";
+//}
+//
 
 
 //int main() {
@@ -26,7 +39,7 @@ try {
 	//	}
 	//}
 
-	
+
 	//char c = 'y';
 	//int i1 = c;
 	//int i2 = 'y';
