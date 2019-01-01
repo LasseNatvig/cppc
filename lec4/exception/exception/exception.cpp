@@ -1,8 +1,7 @@
-/* exception.cpp
-(See also vector_intro.cpp)
+/* exception.cpp     (See also vector_intro.cpp)
 *** This file demonstrates:
 - generating random numbers with rand() and srand()
-- (Three ways to loop, repetition from Lec1Ex4)
+- (Three ways to loop, repetition from vector_intro)
 - out of range error
 - exceptions try catch
 */
@@ -51,12 +50,12 @@ int main() {
 	// or the last index in the vector (false). We try the last option:
 
 	// 4) Traditional for loop with range error
-	for (unsigned int i = 0; i <= N; i++) {
-		cout << nums[i] << " ";
-	}
-	cout << endl;
+	//for (unsigned int i = 0; i <= N; i++) {
+	//	cout << nums[i] << " ";
+	//}
+	//cout << endl;
 
-	// 5) Traditional for loop with range error, try - catch demo, PPP page 149
+	//// 5) Traditional for loop with range error, try - catch demo, PPP page 149
 	//try {
 	//	for (unsigned int i = 0; i <= N; i++) {
 	//		cout << nums[i] << " ";
@@ -74,63 +73,22 @@ int main() {
 
 	//cout << endl;
 
-	//// 6) Traditional for loop with range error, try - catch demo, PPP page 149
-	//try {
-	//	for (unsigned int i = 0; i <= N; i++) {
-	//		cout << nums[i] << " ";
-	//	}
-	//	cout << endl;
-	//}
-	//catch (exception& e) {
-	//	cerr << "Exception: " << e.what() << "\n";
-	//	return 1;
-	//}
-	//catch (...) {
-	//	cerr << "Unknown exception\n";
-	//	return 2;
-	//}
+	// 6) Traditional for loop with range error, try - catch demo, PPP page 152
+	try {
+		int i = 10;
+		int j = (i / 0);
 
-
-
-
-	//// 6) as above but with try-catch, PPP 5.6 and 5.6.2
-	//try {
-
-	//	// TEST Bjarne error(s) og error(s1, s2);
-
-	//	error("Test-error");
-
-	//	for (unsigned int i = 0; i <= N; i++) {
-	//		cout << nums[i] << " ";
-	//	}
-	//	cout << endl;
-	//}
-	//catch (out_of_range) {
-	//	cerr << "Range error\n";
-	//	throw(runtime_error("range-error*****"));
-	//	//keep_window_open();
-	//	return 1;
-	//}
-	//catch (runtime_error) {
-	//	cerr << "runtime error\n";
-	//	throw(runtime_error("runtime-error*****"));
-	//	keep_window_open();
-	//	return 1;
-	//}
-	//catch (...) {
-	//	cerr << "Exception: something went wrong\n";
-	//	keep_window_open();
-	//	return 2;
-	//}
-
-	//int i = 10;
-	//cout << i / 0;
-
-	//***************************** hjalp ikke
-
-	//catch (out_of_range) {
-	//	throw(runtime_error("range error"));
-	//	//cerr << "Range error\n";
-	//	//keep_window_open();
-
+		for (unsigned int i = 0; i <= N; i++) {
+			cout << nums[i] << " ";
+		}
+		cout << endl;
+	}
+	catch (exception& e) {
+		cerr << "Exception: " << e.what() << "\n";
+		return 1;
+	}
+	catch (...) {
+		cerr << "Unknown exception\n";
+		return 2;
+	}
 }
