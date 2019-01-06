@@ -9,6 +9,24 @@ public:
 		return old; 
 	}  
 };
+
+int x;	// global variable – avoid those where you can
+int y;	// another global variable
+
+int f() {
+	int x;	// local variable (Note – now there are two x’s)
+	x = 7;	// local x, not the global x
+	{
+		int x = y;	// another local x, initialized by the global y
+					// (Now there are three x’s)
+		++x;		// increment the local x in this scope
+	}
+	return x;
+}
+// avoid such complicated nesting and hiding: keep it simple!
+
+
+
 int main() {
 	X var;			// var is a variable of type X 
 	var.m = 7;		// access var’s data member m
