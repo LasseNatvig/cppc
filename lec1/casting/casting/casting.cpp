@@ -7,7 +7,7 @@ using namespace std; */
 
 int main() {
 	int i = 2;
-	int j = 7;
+	int j = 7; 
 	cout << setprecision(4) << fixed; // print doubles with 4 decimals
 	cout << "i: " << i << ", i as double: " << static_cast<double>(i) << endl;
 	cout << "j/i: " << j / i << ", j/i as double: " << static_cast<double>(j / i) << endl;
