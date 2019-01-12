@@ -31,6 +31,32 @@ int main() {
 	X var;			// var is a variable of type X 
 	var.m = 7;		// access var’s data member m
 	int x = var.mf(9); // call var’s member function mf()
+
+
+	//{ // Plain enum-test
+	//	enum TitleColor { red, green };	// a “plain” enum { } doesn’t define a scope
+	//	int title_color = red;			// red is available here
+	//	enum CanvasColor { white, red, blue, purple };	// error: red defined twice
+	//	int canvas_color = red;
+	//}
+
+
+	{ // Scoped enum-test
+		enum class TitleColor { red, green };	 
+		// int title_color = TitleColor::red; // gives error, not allowed	
+		TitleColor title_color = TitleColor::red;
+
+		enum class CanvasColor { white, red, blue, purple };	 
+		CanvasColor canvas_color = CanvasColor::red;
+		cout << "If you really need the int value ";
+		cout << static_cast<int>(CanvasColor::blue);
+	}
+
+	cout << "";
+
+
+
+
 }
 
 //int main()
