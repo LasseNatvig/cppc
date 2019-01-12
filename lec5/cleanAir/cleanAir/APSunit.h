@@ -6,6 +6,9 @@
 
 constexpr int APSwidth = 60; // APS is short for Air Pollution Sensor
 constexpr int APSheigth = 20;
+const string cityFileName = "Trondheim.jpg";
+const string cityWinTitle = "Apparatur for måling av luftkvalitet i Trondheim, en gave fra TDT4102 til Bartebyen, våren 2019.";
+const string sensorsFileName = "clean_air_trondheim.txt";
 
 class APSunit {
 	// These are private by default (in class), but you can also use keyword private
@@ -18,9 +21,10 @@ class APSunit {
 	string name;
 public:
 	APSunit() {};
-	APSunit(Vector_ref<Shape> & plot, Point loc, string name) : location(loc), name(name) {
-		plot.push_back(new Rectangle{ loc, APSwidth, APSheigth });
-		plot[plot.size() - 1].set_fill_color(Color::red);
-	};
+	APSunit(Point loc, string name);
+	string getName() { return name; };
 	void attach(Simple_window & win);
+	Vector_ref<Shape> display;  // error message when this message was private: fltk fl_line_style(): could not create GDI pen object
 };
+
+void readSensors(Vector_ref<APSunit>& allSensors, const string sensorsFileName);
