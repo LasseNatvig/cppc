@@ -39,14 +39,11 @@ public:
 	int get_year() { return year; }
 };
 
-Date_s::Date_s(int y, int m, int d) : year{ y }, month{ m }, day{ d }
+Date_s::Date_s(int y, int m, int d) : year{ y }, month{ m }, day{ d } 
 {
 	// check that (y, m, d) is a valid date
-	// ...
-	cout << "checking valid date NOT completely implemented\n";
-	// **** Hent inn fra eksamen i fjor
+	cout << "checking valid date NOT completely implemented\n"; // **** Hent inn fra eksamen i fjor
 	if (d > 31) {
-		//throw "Invalid date passed to constructor";
 		throw exception("Invalid date passed to constructor");
 	}
 	else {
