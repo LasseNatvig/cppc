@@ -4,7 +4,7 @@ int main() {
 	////**************************************************
 	//// part a) Uninitialized variables, MS-VS gives error message for these, therefore commented out
 	//
-	//int x;		// x gets a “random” initial value
+	// int x;		// x gets a “random” initial value
 	//char c; 	// c gets a “random” initial value
 	//double d; 	// d gets a “random” initial value
 	//			//     – not every bit pattern is a valid floating-point value
@@ -42,7 +42,7 @@ int main() {
 		int a{ 1000 }; // OK
 		// char b{ a }; // error: int -> char might narrow
 
-		// int char b1{ 1000 }; // error: narrowing (assuming 8-bit chars)
+		//char b1{ 1000 }; // error: narrowing (assuming 8-bit chars)
 		char b2{ 48 }; // OK
 	}
 

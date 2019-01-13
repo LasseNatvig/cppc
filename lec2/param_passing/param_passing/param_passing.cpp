@@ -4,7 +4,6 @@
 const int maxNum = 5000000;
 
 clock_t readTime() { return clock(); }
-
 void reportTime(clock_t before, string str) {
 	cout << str << " " << "clock_ticks used: " <<
 		readTime() - before << endl;
@@ -38,7 +37,7 @@ void searchVectorConstRef(const vector<int>& v_cr, int num) { // call by const r
 
 int main() {
 	clock_t before = readTime();
-	vector<int> V = generateVector(40000000);
+	vector<int> V = generateVector(40000000); 
 	reportTime(before, "generate");
 
 	cout << endl;

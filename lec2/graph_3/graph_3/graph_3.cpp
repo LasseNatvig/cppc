@@ -27,7 +27,6 @@ constexpr int maxMonthNo = 11;
 int xCoord(Point origo, int i) {
 	return(origo.x + ((i * xAxisSize) / maxMonthNo));
 }
-
 int yCoord(Point origo, int temp, int totalMin, int ySpan) {
 	return(origo.y - (yAxisSize * (temp - totalMin)) / ySpan);
 }
@@ -51,14 +50,14 @@ int main() {
 	int ySpan = totalMax - totalMin; // no of degrees to span all of y-axis
 
 	Open_polyline oplMax;
-	for (int i = 0; i < maxTemp.size(); i++) {
+	for (unsigned int i = 0; i < maxTemp.size(); i++) {
 		oplMax.add(Point{ xCoord(origo,i), yCoord(origo, maxTemp[i], totalMin, ySpan) });
 	}
 	oplMax.set_color(Color::red);
 	win.attach(oplMax);
 
 	Open_polyline oplMin;
-	for (int i = 0; i < minTemp.size(); i++) {
+	for (unsigned int i = 0; i < minTemp.size(); i++) {
 		oplMin.add(Point{ xCoord(origo,i), yCoord(origo, minTemp[i], totalMin, ySpan) });
 	}
 	oplMin.set_color(Color::blue);
@@ -71,7 +70,7 @@ int main() {
 	Rectangle background{ Point{backX, backY}, back_width, back_height }; // PPP 12.7.6
 	background.set_fill_color(Color::yellow);
 	win.attach(background);
-	Text trd{ Point{110, 75}, "Trondheim - Norway" };
+	Text trd{ Point{110, 75}, "Trondheim - Norway" }; // hmmm, magic numbers ?
 	trd.set_color(Color::dark_red);
 	win.attach(trd);
 
