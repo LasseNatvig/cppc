@@ -3,7 +3,7 @@
 int main() {
 	cout << "Enter your name (followed by return/enter)\n";
 	string name = ""; // string object name initialized to empty string 
-	cin >> name; // read a string from cin (= console in, keyboard)
+	cin >> name; // read a string from cin (console in, keyboard)
 	string s1 = "Hello"; // sets s1 to Hello, very common syntax
 	string s1a = { "Hello2" }; // alternative, recommended syntax
 	string s2(",have a nice day!"); // sets s2 to a longer text-string, containing blanks. Also alternative syntax () instead of =
@@ -23,7 +23,7 @@ int main() {
 	double d = stod("17.18");
 	int i = stoi("190");
 	long l = stol("171845679");
-	cout << d << " // " << i << " // " << l << endl;
+	cout << d << " | " << i << " | " << l << endl;
 
 	keep_window_open();
 }
