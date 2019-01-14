@@ -1,13 +1,13 @@
 #include "std_lib_facilities.h"
- 
+
 class X {
 public:
 	int m;	  // data member
 	int mf(int v) { // function member
-		int old = m; 
-		m = v; 
-		return old; 
-	}  
+		int old = m;
+		m = v;
+		return old;
+	}
 };
 
 int x;	// global variable – avoid those where you can
@@ -28,6 +28,23 @@ int f() {
 
 
 int main() {
+
+	// if without else, and difference from python
+	{
+		int a = 2;
+		if (a == 2)
+			cout << 2 << endl;
+			cout << 3 << endl; // Don't do this!!!
+		a = 4;
+		if (a == 2)
+			cout << 2 << endl;
+			cout << 3 << endl; // is printed !
+		cout << "end\n";
+	}
+
+
+
+
 	X var;			// var is a variable of type X 
 	var.m = 7;		// access var’s data member m
 	int x = var.mf(9); // call var’s member function mf()
@@ -42,11 +59,11 @@ int main() {
 
 
 	{ // Scoped enum-test
-		enum class TitleColor { red, green };	 
+		enum class TitleColor { red, green };
 		// int title_color = TitleColor::red; // gives error, not allowed	
 		TitleColor title_color = TitleColor::red;
 
-		enum class CanvasColor { white, red, blue, purple };	 
+		enum class CanvasColor { white, red, blue, purple };
 		CanvasColor canvas_color = CanvasColor::red;
 		cout << "If you really need the int value ";
 		cout << static_cast<int>(CanvasColor::blue);
