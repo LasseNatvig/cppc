@@ -11,7 +11,7 @@ int main() {
 		int choice = 0;
 		while (choice != quit) {
 			cout << "Menu:\n"
-				"1: option A\n" //
+				"1: option A\n" 
 				"2: option B\n"
 				"3: option C\n"
 				<< quit << ": Quit\n> ";
@@ -30,13 +30,13 @@ int main() {
 		int choice = 0;
 		while (choice != quit) {
 			cout << "Menu V2:\n"
-				"1: option A\n" //
+				"1: option A\n" 
 				"2: option B\n"
 				"3: option C\n"
 				<< quit << ": Quit\n> ";
 			cin >> choice;
 
-			if ((1 <= choice) && (choice <= 3)) {
+			if ((1 <= choice) && (choice <= 3)) { // By the way, && means logical and, || is logical or
 				cout << "Option " << choice << " selected\n";
 				continue;
 			}
@@ -61,7 +61,7 @@ int main() {
 				"3: option C\n"
 				<< quit << ": Quit\n> ";
 			cin >> choice;
-			if (cin) { // we got an integer, now check it
+			if (cin) { // we got an integer since cin returns true, now check it
 				if ((1 <= choice) && (choice <= 3)) {
 					cout << "Option " << choice << " selected\n";
 					continue;
@@ -74,7 +74,7 @@ int main() {
 				cin.clear(); // set the state back to good
 				cout << "not a number, try again\n";
 				for (char c; (cin >> c) && !isdigit(c); ) // throw away non-digits 
-					/* do nothing */;
+					/* do nothing */;  // for loop terminates when first digit is read
 				cin.unget(); // put digit back, so that we can read the number
 			}
 		}
