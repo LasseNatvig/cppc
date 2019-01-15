@@ -1,5 +1,7 @@
 #include "std_lib_facilities.h"
 
+
+
 class X {
 public:
 	int m;	  // data member
@@ -26,8 +28,20 @@ int f() {
 // avoid such complicated nesting and hiding: keep it simple!
 
 
-
+void func(int& x) {
+	x++;
+}
 int main() {
+
+	int a = 0;
+	// int& b = 0;  // error, does not compile 
+	int b = 0;
+	func(a);
+	// func(b&); // error, does not compile 
+	cout << "a = " << a << endl;
+
+
+	cout << endl;
 
 	// if without else, and difference from python
 	{

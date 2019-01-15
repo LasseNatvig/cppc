@@ -63,9 +63,9 @@ int main() {
 	oplMin.set_color(Color::blue);
 	win.attach(oplMin);
 
-	constexpr int backX = 100;
+	constexpr int backX = 100; 
 	constexpr int backY = 50;
-	constexpr int back_width = 150;
+	constexpr int back_width = 150; 
 	constexpr int back_height = 45;
 	Rectangle background{ Point{backX, backY}, back_width, back_height }; // PPP 12.7.6
 	background.set_fill_color(Color::yellow);

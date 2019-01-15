@@ -50,10 +50,10 @@ int main() {
 	// or the last index in the vector (false). We try the last option:
 
 	// 4) Traditional for loop with range error
-	//for (unsigned int i = 0; i <= N; i++) {
-	//	cout << nums[i] << " ";
-	//}
-	//cout << endl;
+	for (unsigned int i = 0; i <= N; i++) {
+		cout << nums[i] << " ";
+	}
+	cout << endl;
 
 	//// 5) Traditional for loop with range error, try - catch demo, PPP page 149
 	//try {

@@ -12,8 +12,9 @@ APSunit::APSunit(Point loc, string name) : location(loc), name(name) {
 
 };
 
-void APSunit::attach(Simple_window & win) {
-	for (int i = 0; i < display.size(); i++) {
+// do not need conditional compilation here since a Simple_window is also a Graph_lib::Window
+void APSunit::attach(Graph_lib::Window & win) {
+		for (int i = 0; i < display.size(); i++) {
 			win.attach(display[i]);
 	}
 }

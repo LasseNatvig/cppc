@@ -27,7 +27,7 @@ int main() {
 	// and it will throw an exception. So it is SAFE
 	string str3 = "ABCDEF"; // 
 	for (unsigned int i = 3; i < str3.size(); ++i) {
-// 	for (unsigned int i = 3; i <= str3.size(); ++i) {
+    //for (unsigned int i = 3; i <= str3.size(); ++i) {
 		str3.at(i) = '*';
 	}
 	cout << "str3: " << str3 << endl;

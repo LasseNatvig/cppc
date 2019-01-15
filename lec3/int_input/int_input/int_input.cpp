@@ -38,13 +38,14 @@ int main() {
 
 			if ((1 <= choice) && (choice <= 3)) { // By the way, && means logical and, || is logical or
 				cout << "Option " << choice << " selected\n";
+				// branch to right option and do it
 				continue;
 			}
 			if (choice != quit) {
 				cout << "sorry, try again\n";
 			}
 		}
-		// branch to right option and do it
+
 	}
 	cout << endl;
 
@@ -64,6 +65,7 @@ int main() {
 			if (cin) { // we got an integer since cin returns true, now check it
 				if ((1 <= choice) && (choice <= 3)) {
 					cout << "Option " << choice << " selected\n";
+					// branch to right option and do it
 					continue;
 				}
 				if (choice != quit) {
@@ -78,7 +80,7 @@ int main() {
 				cin.unget(); // put digit back, so that we can read the number
 			}
 		}
-		// branch to right option and do it
+
 	}
 
 	cout << endl << "goodbye" << endl;
