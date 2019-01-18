@@ -3,12 +3,30 @@
 #include "Simple_window.h" 
 #include "APSunit.h"
 
+//struct myText : Text {
+//	int var = 0;
+//	myText(Point loc, const string& s) : Text::loc(loc), name(s) {
+//	}
+//	void set_font_size(int i) {
+//		this.set_font_size(i); 
+//	}
+//}; MARK-A
+
+
 APSunit::APSunit(Point loc, string name) : location(loc), name(name) {
 	display.push_back(new Rectangle{ loc, APSwidth, APSheigth });
 	display[display.size() - 1].set_fill_color(Color::red);
 	// display.push_back(new Text{ Point{loc.x + 50, loc.y + 50}, name });
-	display.push_back(new Text{ loc, name });
+
+	Text* textPtr = new Text{ loc, name };
+	textPtr->set_font_size(20);
+	display.push_back(textPtr);
+
+	//display.push_back(new Text{ loc, name });
 	display[display.size() - 1].set_color(Color::blue);
+	// MARK-A 
+    //display[display.size() - 1].set_font_size(20); TODO --- hmm dette burde gå
+	// static_cast<Text>(display[display.size() - 1]).set_font_size(20); // TODO --- får ikke lov
 
 };
 

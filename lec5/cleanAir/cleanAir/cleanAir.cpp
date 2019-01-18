@@ -30,6 +30,7 @@ int main() try {
 
 	Image cityMap{Point{0,0}, cityFileName};
 	win.attach(cityMap);
+
 	Vector_ref<APSunit> allSensors;
 	readSensors(allSensors, sensorsFileName);
 	for (int i = 0; i < allSensors.size(); i++) {
@@ -37,10 +38,10 @@ int main() try {
 	}
 
 	for (int hour = 0; hour < 24; hour++) {
-		Text time{ Point{333,333}, to_string(hour) };
-		time.set_font(Font::times_bold);
-		time.set_font(50);  // TODO throws exception in simple-window,problem with drawing next-button
+		Text time{ Point{200, 200}, "Time: " + to_string(hour) + ":00h" };
 		time.set_color(Color::dark_red);
+		time.set_font(Font::helvetica_bold);
+		time.set_font_size(30);
 		win.attach(time);
 #ifdef SIMPLE_WIN
 		win.wait_for_button();
@@ -50,6 +51,7 @@ int main() try {
 		Fl::redraw();
 #endif
 	}
+
 }
 catch (exception& e) {
 	cerr << e.what();
