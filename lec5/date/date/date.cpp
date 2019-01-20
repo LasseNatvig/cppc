@@ -43,15 +43,13 @@ public:
 };
 
 Date_s::Date_s(int y, int m, int d) : year{ y }, month{ m }, day{ d } {
-	// above line uses so called (member) initializer list (PPP 9.4.4.) --- it will be explained in the next lecture
-	// check that (y, m, d) is a valid date
+	// above line uses so called (member) initializer list (PPP 9.4.4.)
+	// This constructor should check that (y, m, d) is a valid date
 	cout << "checking valid date NOT completely implemented\n"; 
 	if (d > 31) {
 		throw exception("Invalid date passed to constructor");
 	}
-	else {
-		// is OK
-	}
+	// The created Date_s object is OK
 }
 
 void Date_s::add_day(int n) {	// increase the Date by n days

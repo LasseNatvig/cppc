@@ -31,7 +31,21 @@ int f() {
 void func(int& x) {
 	x++;
 }
+
+
+enum class Month {
+	jan = 1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
+};
+Month operator++(Month& m) {	// prefix increment operator
+	// “wrap around”:
+	m = (m == Month::dec) ? Month::jan : Month(static_cast<int>(m) + 1);
+	return m;
+}
 int main() {
+	Month m = Month::nov;
+	++m;	// m becomes dec
+	++m;	// m becomes jan
+
 
 	int a = 0;
 	// int& b = 0;  // error, does not compile 

@@ -11,7 +11,7 @@ void printGuess(int guess, int secret, int count);
 //Skriver ut informasjon
 
 int main() {
-	setlocale(LC_ALL, "Norwegian");
+	setlocale(LC_ALL, "Norwegian");  // Makes printing æ, ø, å, Æ, Ø and Å possible
 	srand(static_cast<unsigned int>(time(NULL)));
 	int secret = (rand() % 10) + 1;
 	int guess = 0;
