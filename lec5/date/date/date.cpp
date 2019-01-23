@@ -75,7 +75,7 @@ int main() try {
 	print_day(christmas);
 	christmas.month = 14; // free access to member variable in struct date makes it easy to produce an illegal date
 	// imagine much later, in another part of a huge program, after hours of execution you will print it ("Time bomb")
-	// print_day(christmas);  // run-time error
+	print_day(christmas);  // run-time error
 
 	//************************
 	// (3)

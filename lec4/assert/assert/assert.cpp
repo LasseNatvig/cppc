@@ -1,3 +1,5 @@
+// assert.cpp, note this program is not using the std_lib_facilities.h
+
 #include<iostream>
 #include<ctime>
 // #define NDEBUG
