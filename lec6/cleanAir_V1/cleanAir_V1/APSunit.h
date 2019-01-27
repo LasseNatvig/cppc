@@ -23,10 +23,10 @@ const map<APSstate, Color> colorMap{
 	{APSstate::calibration, Color::light_gray},
 	{APSstate::booting, Color::mid_gray},
 	{APSstate::ok, Color::green},	
-	{APSstate::warning, Color::dark_yellow},	
+	{APSstate::warning, Color::yellow},	
 	{APSstate::bad, Color::red},
 	{APSstate::malfunc, Color::black},
-	{APSstate::flaky, Color::dark_gray},
+	{APSstate::flaky, Color::cyan},
 };
 
 const map<APSstate, string> textColorMap{
@@ -35,10 +35,10 @@ const map<APSstate, string> textColorMap{
 	{APSstate::calibration, "light_gray"},
 	{APSstate::booting, "mid_gray"},
 	{APSstate::ok, "green"},
-	{APSstate::warning, "dark_yellow"},
+	{APSstate::warning, "yellow"},
 	{APSstate::bad, "red"},
 	{APSstate::malfunc, "black"},
-	{APSstate::flaky, "dark_gray"},
+	{APSstate::flaky, "cyan"},
 };
 
 class APSunit {

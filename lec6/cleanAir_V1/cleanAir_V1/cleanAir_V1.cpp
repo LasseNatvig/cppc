@@ -27,11 +27,6 @@ int main() try {
 	}
 	win.wait_for_button();// debug
 
-	APSstate s;
-	for (int i = 0; i < 1000; i++) {
-		s = magicReadState();
-	}
-
 	cout << "... simulerer siste døgn\n";
 	for (int hour = 0; hour < 24; hour++) {
 		Text time{ Point{200, 200}, "Time: " + to_string(hour) + ":00h" };
