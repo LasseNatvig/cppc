@@ -1,81 +1,173 @@
 #include "std_lib_facilities.h"
 
-
-
-class X {
-public:
-	int m;	  // data member
-	int mf(int v) { // function member
-		int old = m;
-		m = v;
-		return old;
-	}
+struct Date {
+	int day, month, year;
 };
-
-int x;	// global variable – avoid those where you can
-int y;	// another global variable
-
-int f() {
-	int x;	// local variable (Note – now there are two x’s)
-	x = 7;	// local x, not the global x
-	{
-		int x = y;	// another local x, initialized by the global y
-					// (Now there are three x’s)
-		++x;		// increment the local x in this scope
+istream& operator>>(istream& is, Date& dd)
+// Read date in format: ( year , month , day )
+{
+	int y, d, m;
+	char ch1, ch2, ch3, ch4;
+	is >> ch1 >> y >> ch2 >> m >> ch3 >> d >> ch4;
+	if (!is) return is;	// we didn’t get our values, so just leave
+	if (ch1 != '(' || ch2 != ',' || ch3 != ',' || ch4 != ')') {	// oops: format error
+		is.clear(ios_base::failbit); // something wrong: set state to fail()
+		return is; // and leave
 	}
-	return x;
-}
-// avoid such complicated nesting and hiding: keep it simple!
-
-
-void func(int& x) {
-	x++;
+	dd = Date{ y,m,d };	// update dd
+	return is;			// and leave with is in the good() state
 }
 
-
-enum class Month {
-	jan = 1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
-};
-Month operator++(Month& m) {	// prefix increment operator
-	// “wrap around”:
-	m = (m == Month::dec) ? Month::jan : Month(static_cast<int>(m) + 1);
-	return m;
+ostream& operator<< (ostream& os, const Date& d) {
+	return os << '(' << d.year
+		<< ',' << d.month
+		<< ',' << d.day << ')';
 }
+
 int main() {
-	Month m = Month::nov;
-	++m;	// m becomes dec
-	++m;	// m becomes jan
+	cout << "Please enter input file name: ";
+	string iname;
+	cin >> iname;
+	ifstream ist{ iname }; // ifstream is an “input stream from a file”
+				// defining an ifstream with a name iname
+				// opens the file of that name for reading
+	if (!ist) error("can’t open input file ", iname);
+
+	cout << "Please enter name of output file: ";
+	string oname;
+	cin >> oname;
+	ofstream ofs{ oname }; // ofstream is an “output stream from a file”
+					// defining an ofstream with a name oname
+					// opens the file with that name for writing
+	if (!ofs) error("can’t open output file ", oname);
 
 
-	int a = 0;
-	// int& b = 0;  // error, does not compile 
-	int b = 0;
-	func(a);
-	// func(b&); // error, does not compile 
-	cout << "a = " << a << endl;
+	struct Reading { // a temperature reading
+		int hour;	// hour after midnight [0:23]
+		double temperature;
+	};
 
+	vector<Reading> temps;	// create a vector to store the readings
 
-	cout << endl;
-
-	// if without else, and difference from python
-	{
-		int a = 2;
-		if (a == 2)
-			cout << 2 << endl;
-			cout << 3 << endl; // Don't do this!!!
-		a = 4;
-		if (a == 2)
-			cout << 2 << endl;
-			cout << 3 << endl; // is printed !
-		cout << "end\n";
+	int hour;
+	double temperature;
+	while (ist >> hour >> temperature) { // read
+		if (hour < 0 || 23 < hour)
+			error("hour out of range");	// check
+		temps.push_back(Reading{ hour,temperature }); // store
 	}
 
 
+}
+
+//
+//class X {
+//public:
+//	int m;	  // data member
+//	int mf(int v) { // function member
+//		int old = m;
+//		m = v;
+//		return old;
+//	}
+//};
+//
+//int x;	// global variable – avoid those where you can
+//int y;	// another global variable
+//
+//int f() {
+//	int x;	// local variable (Note – now there are two x’s)
+//	x = 7;	// local x, not the global x
+//	{
+//		int x = y;	// another local x, initialized by the global y
+//					// (Now there are three x’s)
+//		++x;		// increment the local x in this scope
+//	}
+//	return x;
+//}
+//// avoid such complicated nesting and hiding: keep it simple!
+//
+//
+//void func(int& x) {
+//	x++;
+//}
+//
+//
+//enum class Month {
+//	jan = 1, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
+//};
+//Month operator++(Month& m) {	// prefix increment operator
+//	// “wrap around”:
+//	m = (m == Month::dec) ? Month::jan : Month(static_cast<int>(m) + 1);
+//	return m;
+//}
+
+//class Year { // year in [min:max) range
+//	static constexpr int min = 1800;
+//	static constexpr int max = 2200;
+//public:
+//	class Invalid { };
+//	Year(int x) : y{ x } {
+//		if (x < min || max <= x) {
+//			throw Invalid{};
+//		}
+//	}
+//	int year() { return y; }
+//private:
+//	int y;
+//};
 
 
-	X var;			// var is a variable of type X 
-	var.m = 7;		// access var’s data member m
-	int x = var.mf(9); // call var’s member function mf()
+
+
+//int main() try {
+//
+//	ostream os;
+//
+//	Year{ 1814 };
+//	Year{ 1750 };
+//}
+//catch (exception& e) {	// out_of_range exceptions
+//	cerr << "Exception caught:" << e.what() << endl;
+//}
+//catch (...) {		// all other exceptions
+//	cerr << "oops ... some exception\n";
+//}
+
+
+	//Month m = Month::nov;
+	//++m;	// m becomes dec
+	//++m;	// m becomes jan
+
+
+	//int a = 0;
+	//// int& b = 0;  // error, does not compile 
+	//int b = 0;
+	//func(a);
+	//// func(b&); // error, does not compile 
+	//cout << "a = " << a << endl;
+
+
+	//cout << endl;
+
+	//// if without else, and difference from python
+	//{
+	//	int a = 2;
+	//	if (a == 2)
+	//		cout << 2 << endl;
+	//		cout << 3 << endl; // Don't do this!!!
+	//	a = 4;
+	//	if (a == 2)
+	//		cout << 2 << endl;
+	//		cout << 3 << endl; // is printed !
+	//	cout << "end\n";
+	//}
+
+
+
+
+	//X var;			// var is a variable of type X 
+	//var.m = 7;		// access var’s data member m
+	//int x = var.mf(9); // call var’s member function mf()
 
 
 	//{ // Plain enum-test
@@ -86,23 +178,22 @@ int main() {
 	//}
 
 
-	{ // Scoped enum-test
-		enum class TitleColor { red, green };
-		// int title_color = TitleColor::red; // gives error, not allowed	
-		TitleColor title_color = TitleColor::red;
+	//{ // Scoped enum-test
+	//	enum class TitleColor { red, green };
+	//	// int title_color = TitleColor::red; // gives error, not allowed	
+	//	TitleColor title_color = TitleColor::red;
 
-		enum class CanvasColor { white, red, blue, purple };
-		CanvasColor canvas_color = CanvasColor::red;
-		cout << "If you really need the int value ";
-		cout << static_cast<int>(CanvasColor::blue);
-	}
+	//	enum class CanvasColor { white, red, blue, purple };
+	//	CanvasColor canvas_color = CanvasColor::red;
+	//	cout << "If you really need the int value ";
+	//	cout << static_cast<int>(CanvasColor::blue);
+	//}
 
-	cout << "";
-
-
+	//cout << "";
 
 
-}
+
+
 
 //int main()
 //try {

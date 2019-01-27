@@ -2,9 +2,8 @@
 #pragma once
 #include "Graph.h"
 #include "Simple_window.h" 
-#include "APSunit.h"
 
-const string cityFileName = "Trondheim.jpg"; 
+const string cityFileName = "Trondheim.jpg";
 constexpr int winWidth = 1310;  // is set wide enough to have the next button outside this actual city map
 constexpr int winHeigth = 900;
 const string cityWinTitle = "Apparatur for måling av luftkvalitet i Trondheim, en gave fra TDT4102 til Bartebyen, våren 2019.";
@@ -22,9 +21,11 @@ class APSunit {
 	unsigned int nitrousOxide = 0;
 	Point location;
 	string name;
+	int myId;
 public:
 	APSunit() {};
 	APSunit(Point loc, string name);
+	static int sensorId;
 	string getName() { return name; };
 	void attach(Graph_lib::Window & win);  // works for both versions of cleanAir
 	Vector_ref<Shape> display;  // TODO-ask-LE: error message when this variable was private: fltk fl_line_style(): could not create GDI pen object
