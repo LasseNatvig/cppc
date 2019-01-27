@@ -7,7 +7,7 @@
 int main() try {
 	setlocale(LC_ALL, "norwegian");
 	cout << "cleanAir bruker C++ for et bedre miljø!\n\n";
-	Point topLeft{ 200, 100 };
+	Point topLeft{ 200, 300 };
 	Simple_window win{ topLeft, winWidth, winHeigth, cityWinTitle };
 	cout << "... laster bykart\n";
 	//win.wait_for_button(); // debug
@@ -26,6 +26,11 @@ int main() try {
 		allSensors[i].attach(win);
 	}
 	win.wait_for_button();// debug
+
+	APSstate s;
+	for (int i = 0; i < 1000; i++) {
+		s = magicReadState();
+	}
 
 	cout << "... simulerer siste døgn\n";
 	for (int hour = 0; hour < 24; hour++) {

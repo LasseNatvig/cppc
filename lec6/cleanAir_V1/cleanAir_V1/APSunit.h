@@ -14,9 +14,12 @@ constexpr int APSwidth = 70; // APS is short for Air Pollution Sensor
 constexpr int APSheigth = 50;
 constexpr int maxDescriptionLength = 60; // maximum allowed length of description
 
-enum class APSstate {unknown, planned, calibration, booting, ok, warning, bad, malfunc, flaky};
+enum class APSstate {unknown = 0, planned, calibration, booting, ok, warning, bad, malfunc, flaky};
+	// Note, unknown must be first in enum, and flake last, see function APSstate_to_int()
+
 const map<APSstate, Color> colorMap{ 
 	{APSstate::unknown, Color::white},
+	{APSstate::planned, Color::white},
 	{APSstate::calibration, Color::light_gray},
 	{APSstate::booting, Color::mid_gray},
 	{APSstate::ok, Color::green},	
@@ -24,6 +27,18 @@ const map<APSstate, Color> colorMap{
 	{APSstate::bad, Color::red},
 	{APSstate::malfunc, Color::black},
 	{APSstate::flaky, Color::dark_gray},
+};
+
+const map<APSstate, string> textColorMap{
+	{APSstate::unknown, "white"},
+	{APSstate::planned, "white"},
+	{APSstate::calibration, "light_gray"},
+	{APSstate::booting, "mid_gray"},
+	{APSstate::ok, "green"},
+	{APSstate::warning, "dark_yellow"},
+	{APSstate::bad, "red"},
+	{APSstate::malfunc, "black"},
+	{APSstate::flaky, "dark_gray"},
 };
 
 class APSunit {
@@ -44,12 +59,15 @@ class APSunit {
 public:
 	APSunit(int sno, string name, string tag, Point loc, string descr);
 	static int sensorId;  // must be initialized as global variable since it is static (shared for all objects)
+	APSstate get_state() const { return state; };
 	string get_name() const { return name; };
-	string get_nameTag() const { return nameTag; };	
+	string get_nameTag() const { return nameTag; };
 	int get_myId() const { return myId; };
 	bool set_description(const string s); // updates the description, returns false if argument is too long.
+	void set_state(const APSstate s);
 	void attach(Graph_lib::Window & win);  // to make the sensor visible
 };
 
 void initSensors(Vector_ref<APSunit>& allSensors, const string sensorsFileName);
+APSstate magicReadState();
 void updateSensors(Vector_ref<APSunit>& allSensors);
