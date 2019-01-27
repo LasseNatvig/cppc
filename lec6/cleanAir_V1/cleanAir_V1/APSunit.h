@@ -12,9 +12,23 @@ const string cityWinTitle = "Apparatur for måling av luftkvalitet i Trondheim"
 const string sensorsFileName = "clean_air_trondheim.txt";
 constexpr int APSwidth = 70; // APS is short for Air Pollution Sensor
 constexpr int APSheigth = 50;
+constexpr int maxDescriptionLength = 60; // maximum allowed length of description
+
+enum class APSstate {unknown, planned, calibration, booting, ok, warning, bad, malfunc, flaky};
+const map<APSstate, Color> colorMap{ 
+	{APSstate::unknown, Color::white},
+	{APSstate::calibration, Color::light_gray},
+	{APSstate::booting, Color::mid_gray},
+	{APSstate::ok, Color::green},	
+	{APSstate::warning, Color::dark_yellow},	
+	{APSstate::bad, Color::red},
+	{APSstate::malfunc, Color::black},
+	{APSstate::flaky, Color::dark_gray},
+};
 
 class APSunit {
 	// These are private by default (in class), but you can also use keyword private
+	APSstate state = APSstate::unknown;
 	unsigned int ozone = 0;  // the five most common components measured by APS units according to https://en.wikipedia.org/wiki/Air_pollution_sensor
 	unsigned int particulateMatter = 0; // we assume thay can all be measured as a positive integer
 	unsigned int carbonMonoxide = 0;
@@ -22,15 +36,20 @@ class APSunit {
 	unsigned int nitrousOxide = 0;
 	Point location; // The location as coordinates on the city map, can be updated
 	string name; // Name of APS unit display on map, cannot be changed
-	string description; // Description of where to find the actual sensor when your are close to the location, can be updated
+	string description; // Description of where to find the actual sensor when your are close to the location, can be updated via set_description();
 	string nameTag; // Short three letter name, cannot be changed
+	int unitSerialNo; // serial number for the given unit, cannot be changed
 	int myId; // An unique serial number assigned to the sensors during initialization, cannot be changed
 	Vector_ref<Shape> display; 
 public:
-	APSunit(Point loc, string name); // TODO - revise see READ_SENSOR ***************************************************
-	static int sensorId;  // must be initialized in main program since it is static (shared for all objects)
-	string getName() { return name; }; // TODO -- ADD MORE functions ************************************************************** 
+	APSunit(int sno, string name, string tag, Point loc, string descr);
+	static int sensorId;  // must be initialized as global variable since it is static (shared for all objects)
+	string get_name() const { return name; };
+	string get_nameTag() const { return nameTag; };	
+	int get_myId() const { return myId; };
+	bool set_description(const string s); // updates the description, returns false if argument is too long.
 	void attach(Graph_lib::Window & win);  // to make the sensor visible
 };
 
-void readSensors(Vector_ref<APSunit>& allSensors, const string sensorsFileName);
+void initSensors(Vector_ref<APSunit>& allSensors, const string sensorsFileName);
+void updateSensors(Vector_ref<APSunit>& allSensors);

@@ -21,7 +21,7 @@ int main() try {
 
 	Vector_ref<APSunit> allSensors;
 	cout << "... leser inn sensorer\n";
-	readSensors(allSensors, sensorsFileName);
+	initSensors(allSensors, sensorsFileName);
 	for (int i = 0; i < allSensors.size(); i++) {
 		allSensors[i].attach(win);
 	}
@@ -34,10 +34,15 @@ int main() try {
 		time.set_font(Font::helvetica_bold);
 		time.set_font_size(30);
 		win.attach(time);
+		updateSensors(allSensors);
 		win.wait_for_button();
 		cout << "... Luftforurensingsstatus klokken " + to_string(hour) + " er vist (IKKE implementert enda)\n";
 	}
 }
+
+	// test changing description 
+
+
 catch (exception& e) {
 	cerr << e.what();
 	keep_window_open();
