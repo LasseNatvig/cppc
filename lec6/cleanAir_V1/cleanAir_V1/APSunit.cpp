@@ -1,7 +1,4 @@
 #include "APSunit.h"
-#include "Graph.h"
-#include "Simple_window.h" 
-#include "APSunit.h"
 
 //struct myText : Text {
 //	int var = 0;
@@ -19,12 +16,13 @@ APSunit::APSunit(Point loc, string name) : location(loc), name(name) {
 	display[display.size() - 1].set_fill_color(Color::red);
 	// display.push_back(new Text{ Point{loc.x + 50, loc.y + 50}, name });
 
-	Text* textPtr = new Text{ loc, name };
-	textPtr->set_font_size(20);
-	display.push_back(textPtr);
+	////Text* textPtr = new Text{ loc, name };
+	//textPtr->set_font_size(20);
+	//display.push_back(textPtr);
 
-	//display.push_back(new Text{ loc, name });
-	display[display.size() - 1].set_color(Color::blue);
+	//display.push_back(new Text{ loc, name });  // JOBBER MED DETTE NÅ
+	//display[display.size() - 1].set_font_size(20);
+	//display[display.size() - 1].set_color(Color::blue);
 	// MARK-A 
 	//display[display.size() - 1].set_font_size(20); TODO --- hmm dette burde gå
 	// static_cast<Text>(display[display.size() - 1]).set_font_size(20); // TODO --- får ikke lov
@@ -39,11 +37,8 @@ void APSunit::attach(Graph_lib::Window & win) {
 }
 
 void readSensors(Vector_ref<APSunit>& allSensors, const string sensorsFileName) {
-	ifstream sensFile;
-	sensFile.open(sensorsFileName);
-	if (sensFile.fail()) {
-		throw exception("Error opening file!");
-	}
+	ifstream sensFile{ sensorsFileName };
+	if (sensFile.fail()) throw exception("Error opening file!");
 	else { // Declare variables as local as possible
 		string name, tla; // tla means Three Letter Abbreviation (TBF in Norwegian)
 		int id, xCoord, yCoord;
@@ -52,6 +47,7 @@ void readSensors(Vector_ref<APSunit>& allSensors, const string sensorsFileName) 
 		while (id > 0) { // id == 0 terminates loop
 			sensFile >> name >> tla >> xCoord >> yCoord;
 			getline(sensFile, description); // assure skip to end of line
+			// setlocale(LC_ALL, "norwegian");
 			cout << tla << " " << description << endl;
 			// id not used yet
 			allSensors.push_back(new APSunit(Point{ xCoord, yCoord }, name));

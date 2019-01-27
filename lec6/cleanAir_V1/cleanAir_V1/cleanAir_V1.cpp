@@ -10,9 +10,14 @@ int main() try {
 	Point topLeft{ 200, 100 };
 	Simple_window win{ topLeft, winWidth, winHeigth, cityWinTitle };
 	cout << "... laster bykart\n";
-	Image cityMap{ Point{0,0}, cityFileName };
+	//win.wait_for_button(); // debug
+
+	ifstream testFileExist{ cityFileName, ios_base::binary }; // opening binary file to check that it exists, PPP 11.3.2
+	if (!testFileExist) error("can't open input file ", cityFileName); // Remember that error (from PPP) will throw an exception
+		// we use error here since it allows us to report also the filename for the file we tried to open
+	Image cityMap{ Point{0,0}, cityFileName }; // The program hangs if file is not found
 	win.attach(cityMap);
-	keep_window_open(); // debug
+	//win.wait_for_button();// debug
 
 	Vector_ref<APSunit> allSensors;
 	cout << "... leser inn sensorer\n";
@@ -20,7 +25,7 @@ int main() try {
 	for (int i = 0; i < allSensors.size(); i++) {
 		allSensors[i].attach(win);
 	}
-	keep_window_open(); // debug
+	win.wait_for_button();// debug
 
 	cout << "... simulerer siste døgn\n";
 	for (int hour = 0; hour < 24; hour++) {
@@ -30,9 +35,17 @@ int main() try {
 		time.set_font_size(30);
 		win.attach(time);
 		win.wait_for_button();
+		cout << "... Luftforurensingsstatus klokken " + to_string(hour) + " er vist (IKKE implementert enda)\n";
 	}
 }
 catch (exception& e) {
 	cerr << e.what();
 	keep_window_open();
+	return 1;
 }
+catch (...) {
+	cerr << "Unknown exception\n";
+	keep_window_open();
+	return 2;
+}
+
