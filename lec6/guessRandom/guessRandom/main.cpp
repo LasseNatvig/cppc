@@ -1,21 +1,19 @@
-// assert.cpp, note this program is not using the std_lib_facilities.h
+// guessRandom.cpp
+#include "std_lib_facilities.h"
 
-#include<iostream>
-#include<ctime>
 // #define NDEBUG
 #include<cassert>
 using namespace std;
 
-int getGuess(int min, int max);
-//Ber bruker om tall mellom min og max
-
-void printGuess(int guess, int secret, int count);
-//Skriver ut informasjon
+// Declares two functions that are defined below, after main()
+int getGuess(int min, int max); //Ask the user for a number between min and max 
+void printGuess(int guess, int secret, int count); // Gives feedback 
 
 int main() {
 	setlocale(LC_ALL, "Norwegian");  // Makes printing æ, ø, å, Æ, Ø and Å possible
-	srand(static_cast<unsigned int>(time(NULL)));
-	int secret = (rand() % 10) + 1;
+	srand(static_cast<unsigned int>(time(NULL))); // Sets a seed for random number generator given by current time. Comment out 
+												  // this statement if you want deterministic behaviour
+	int secret = (rand() % 10) + 1; // sets secret number using rand()
 	int guess = 0;
 	int count = 0;
 	while (guess != secret) {
@@ -38,7 +36,7 @@ void printGuess(int guess, int secret, int count) {
 }
 
 int getGuess(int min, int max) {
-	//Ber bruker om tall mellom min og max
+	// Ask the user for a number between min and max 
 	int temp = 0;
 	do {
 		cout << "Gjett et tall mellom ";
