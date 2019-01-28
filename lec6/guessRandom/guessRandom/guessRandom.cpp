@@ -1,7 +1,7 @@
 // guessRandom.cpp
 #include "std_lib_facilities.h"
 
-// #define NDEBUG
+//#define NDEBUG
 #include<cassert>
 using namespace std;
 
