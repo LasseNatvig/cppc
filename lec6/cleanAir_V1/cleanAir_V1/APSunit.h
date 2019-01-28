@@ -14,7 +14,8 @@ constexpr int APSwidth = 70; // APS is short for Air Pollution Sensor
 constexpr int APSheigth = 50;
 constexpr int maxDescriptionLength = 60; // maximum allowed length of description
 
-enum class APSstate {unknown = 0, planned, calibration, booting, ok, warning, bad, malfunc, flaky};
+enum class APSstate {unknown = 0, planned, calibration, 
+				booting, ok, warning, bad, malfunc, flaky};
 	// Note, unknown must be first in enum, and flake last, see function APSstate_to_int()
 
 const map<APSstate, Color> colorMap{ 
