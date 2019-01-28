@@ -11,7 +11,7 @@ void printGuess(int guess, int secret, int count); // Gives feedback
 
 int main() {
 	setlocale(LC_ALL, "Norwegian");  // Makes printing æ, ø, å, Æ, Ø and Å possible
-	srand(static_cast<unsigned int>(time(NULL))); // Sets a seed for random number generator given by current time. Comment out 
+	srand(static_cast<unsigned int>(time(nullptr))); // Sets a seed for random number generator given by current time. Comment out 
 												  // this statement if you want deterministic behaviour
 	int secret = (rand() % 10) + 1; // sets secret number using rand()
 	int guess = 0;
