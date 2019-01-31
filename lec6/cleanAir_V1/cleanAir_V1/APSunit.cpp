@@ -14,7 +14,7 @@ APSstate int_to_APSstate(int n) {
 }
 
 APSunit::APSunit(int sno, string name, string tag, Point loc, string descr) :
-		unitSerialNo(sno), name(name), nameTag(tag), location(loc), description(descr) {
+	unitSerialNo{ sno }, name{ name }, nameTag{ tag }, location{ loc }, description{ descr } {
 	myId = ++sensorId;
 	display.push_back(new Rectangle{ loc, APSwidth, APSheigth });
 	display[display.size() - 1].set_fill_color(colorMap.at(state));
@@ -45,7 +45,8 @@ void APSunit::set_state(const APSstate s) {
 
 ostream& operator<<(ostream& os, APSunit& unit) {
 	return os << unit.get_myId() << " " << unit.get_name() << " "
-		<< unit.get_nameTag() << " " << textColorMap.at(unit.get_state());  // .at is safer than [ ] since it is rangechecked
+		<< unit.get_nameTag() << " " << textColorMap.at(unit.get_state());  
+			// .at is safer than [ ] since it is rangechecked
 }
 
 void initSensors(Vector_ref<APSunit>& allSensors, const string sensorsFileName) {

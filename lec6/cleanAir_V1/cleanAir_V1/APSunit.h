@@ -18,7 +18,7 @@ enum class APSstate {unknown = 0, planned, calibration,
 				booting, ok, warning, bad, malfunc, flaky};
 	// Note, unknown must be first in enum, and flake last, see function APSstate_to_int()
 
-const map<APSstate, Color> colorMap{ 
+const map<APSstate, Color> colorMap{ // defines the colors showing state
 	{APSstate::unknown, Color::white},
 	{APSstate::planned, Color::white},
 	{APSstate::calibration, Color::light_gray},
@@ -30,16 +30,32 @@ const map<APSstate, Color> colorMap{
 	{APSstate::flaky, Color::cyan},
 };
 
-const map<APSstate, string> textColorMap{
-	{APSstate::unknown, "white"},
-	{APSstate::planned, "white"},
-	{APSstate::calibration, "light_gray"},
-	{APSstate::booting, "mid_gray"},
-	{APSstate::ok, "green"},
-	{APSstate::warning, "yellow"},
-	{APSstate::bad, "red"},
-	{APSstate::malfunc, "black"},
-	{APSstate::flaky, "cyan"},
+// Using this map is not smart, changing the color in one entry here and not in coloMap,
+// or vice versa, can cause inconsistent tables. Using colorTextMap (below) is safe
+//const map<APSstate, string> textColorMap{
+//	{APSstate::unknown, "white"},
+//	{APSstate::planned, "white"},
+//	{APSstate::calibration, "light_gray"},
+//	{APSstate::booting, "mid_gray"},
+//	{APSstate::ok, "green"},
+//	{APSstate::warning, "yellow"},
+//	{APSstate::bad, "red"},
+//	{APSstate::malfunc, "black"},
+//	{APSstate::flaky, "cyan"},
+//};
+
+// A disadvantage of this table is that a new color in colorMap above must be
+// followed by an update of this table. However it is possible to check for such an 
+// erroneous condition by code (See MARK-A)
+const map<Color, string>textColorMap{
+	{Color::white, "white"},
+	{Color::light_gray, "light_gray"},
+	{Color::mid_gray,"mid_gray"},
+	{Color::green, "green"},
+	{Color::yellow, "yellow"},
+	{Color::red, "red"},
+	{Color::black, "black"},
+	{Color::cyan, "cyan"},
 };
 
 class APSunit {
