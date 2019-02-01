@@ -1,7 +1,6 @@
 // cleanAir_V1 (Several files)
 #include "Graph.h"
 #include "Simple_window.h" 
-
 #include "APSunit.h"
 
 int main() try {
@@ -41,7 +40,6 @@ int main() try {
 }
 
 	// test changing description 
-
 
 catch (exception& e) {
 	cerr << e.what();

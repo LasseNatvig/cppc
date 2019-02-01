@@ -36,7 +36,7 @@ int main() {
 	cout << "Please enter name of output file: ";
 	string oname;
 	cin >> oname;
-	ofstream ofs{ oname }; // ofstream is an “output stream from a file”
+	ofstream ofs{ oname }; // ofstream is an “output stream to a file”
 					// defining an ofstream with a name oname
 					// opens the file with that name for writing
 	if (!ofs) error("can’t open output file ", oname);
