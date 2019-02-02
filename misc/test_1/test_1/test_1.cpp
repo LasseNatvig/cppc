@@ -1,67 +1,81 @@
 #include "std_lib_facilities.h"
 
-struct Date {
-	int day, month, year;
-};
-istream& operator>>(istream& is, Date& dd)
-// Read date in format: ( year , month , day )
-{
-	int y, d, m;
-	char ch1, ch2, ch3, ch4;
-	is >> ch1 >> y >> ch2 >> m >> ch3 >> d >> ch4;
-	if (!is) return is;	// we didn’t get our values, so just leave
-	if (ch1 != '(' || ch2 != ',' || ch3 != ',' || ch4 != ')') {	// oops: format error
-		is.clear(ios_base::failbit); // something wrong: set state to fail()
-		return is; // and leave
-	}
-	dd = Date{ y,m,d };	// update dd
-	return is;			// and leave with is in the good() state
-}
-
-ostream& operator<< (ostream& os, const Date& d) {
-	return os << '(' << d.year
-		<< ',' << d.month
-		<< ',' << d.day << ')';
-}
-
 int main() {
-	cout << "Please enter input file name: ";
-	string iname;
-	cin >> iname;
-	ifstream ist{ iname }; // ifstream is an “input stream from a file”
-				// defining an ifstream with a name iname
-				// opens the file of that name for reading
-	if (!ist) error("can’t open input file ", iname);
+	//cout << dec << 1234 << "\t(decimal)\n"
+	//	 << hex << 1234 << "\t(hexadecimal)\n"
+	//	 << oct << 1234 << "\t(octal)\n";
+	//// The '\t' character is “tabulator” 
 
-	cout << "Please enter name of output file: ";
-	string oname;
-	cin >> oname;
-	ofstream ofs{ oname }; // ofstream is an “output stream to a file”
-					// defining an ofstream with a name oname
-					// opens the file with that name for writing
-	if (!ofs) error("can’t open output file ", oname);
-
-
-	struct Reading { // a temperature reading
-		int hour;	// hour after midnight [0:23]
-		double temperature;
-	};
-
-	vector<Reading> temps;	// create a vector to store the readings
-
-	int hour;
-	double temperature;
-	while (ist >> hour >> temperature) { // read
-		if (hour < 0 || 23 < hour)
-			error("hour out of range");	// check
-		temps.push_back(Reading{ hour,temperature }); // store
-	}
+	cout << 1234.56789 << "\t\t(defaultfloat)\n"
+		 << fixed << 1234.56789 << "\t(fixed)\n"
+		 << scientific << 1234.56789 << "\t(scientific)\n";
 
 
 }
 
+
+//struct Date {
+//	int day, month, year;
+//};
+//istream& operator>>(istream& is, Date& dd)
+//// Read date in format: ( year , month , day )
+//{
+//	int y, d, m;
+//	char ch1, ch2, ch3, ch4;
+//	is >> ch1 >> y >> ch2 >> m >> ch3 >> d >> ch4;
+//	if (!is) return is;	// we didn’t get our values, so just leave
+//	if (ch1 != '(' || ch2 != ',' || ch3 != ',' || ch4 != ')') {	// oops: format error
+//		is.clear(ios_base::failbit); // something wrong: set state to fail()
+//		return is; // and leave
+//	}
+//	dd = Date{ y,m,d };	// update dd
+//	return is;			// and leave with is in the good() state
+//}
 //
-//class X {
+//ostream& operator<< (ostream& os, const Date& d) {
+//	return os << '(' << d.year
+//		<< ',' << d.month
+//		<< ',' << d.day << ')';
+//}
+//
+//int main() {
+//	cout << "Please enter input file name: ";
+//	string iname;
+//	cin >> iname;
+//	ifstream ist{ iname }; // ifstream is an “input stream from a file”
+//				// defining an ifstream with a name iname
+//				// opens the file of that name for reading
+//	if (!ist) error("can’t open input file ", iname);
+//
+//	cout << "Please enter name of output file: ";
+//	string oname;
+//	cin >> oname;
+//	ofstream ofs{ oname }; // ofstream is an “output stream to a file”
+//					// defining an ofstream with a name oname
+//					// opens the file with that name for writing
+//	if (!ofs) error("can’t open output file ", oname);
+//
+//
+//	struct Reading { // a temperature reading
+//		int hour;	// hour after midnight [0:23]
+//		double temperature;
+//	};
+//
+//	vector<Reading> temps;	// create a vector to store the readings
+//
+//	int hour;
+//	double temperature;
+//	while (ist >> hour >> temperature) { // read
+//		if (hour < 0 || 23 < hour)
+//			error("hour out of range");	// check
+//		temps.push_back(Reading{ hour,temperature }); // store
+//	}
+//
+//
+//}
+//
+////
+////class X {
 //public:
 //	int m;	  // data member
 //	int mf(int v) { // function member
