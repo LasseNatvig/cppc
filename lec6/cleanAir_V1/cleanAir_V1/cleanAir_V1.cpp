@@ -11,10 +11,10 @@ int main() try {
 	cout << "... laster bykart\n";
 	//win.wait_for_button(); // debug
 
-	ifstream testFileExist{ cityFileName, ios_base::binary }; // opening binary file to check that it exists, PPP 11.3.2
+	ifstream testFileExist{ cityFileName }; // opening file to check that it exists 
 	if (!testFileExist) error("can't open input file ", cityFileName); // Remember that error (from PPP) will throw an exception
 		// we use error here since it allows us to report also the filename for the file we tried to open
-	Image cityMap{ Point{0,0}, cityFileName }; // The program hangs if file is not found
+	Image cityMap{ Point{0,0}, cityFileName }; // The program hangs if file is not found, therefore we added the test above
 	win.attach(cityMap);
 	//win.wait_for_button();// debug
 
@@ -24,6 +24,9 @@ int main() try {
 	for (int i = 0; i < allSensors.size(); i++) {
 		allSensors[i].attach(win);
 	}
+	// for (auto sens: allSensors) sens->attach(win); 
+	// exactly the same loop as above, as a one-liner. Uusing auto, more compact. The -> operator is lectured later
+
 	win.wait_for_button();// debug
 
 	cout << "... simulerer siste døgn\n";

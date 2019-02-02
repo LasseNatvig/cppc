@@ -1,28 +1,29 @@
 #include "APSunit.h"
- const map<APSstate, string> stateColortextMap{ // for log-window
-	{APSstate::unknown, "white"},
-	{APSstate::planned, "white"},
-	{APSstate::calibration, "light_gray"},
-	{APSstate::booting, "mid_gray"},
-	{APSstate::ok, "green"},
-	{APSstate::warning, "yellow"},
-	{APSstate::bad, "red"},
-	{APSstate::malfunc, "black"},
-	{APSstate::flaky, "cyan"},
+const map<APSstate, string> stateColortextMap{ // for log-window
+   {APSstate::unknown, "white"},
+   {APSstate::planned, "white"},
+   {APSstate::calibration, "light_gray"},
+   {APSstate::booting, "mid_gray"},
+   {APSstate::ok, "green"},
+   {APSstate::warning, "yellow"},
+   {APSstate::bad, "red"},
+   {APSstate::malfunc, "black"},
+   {APSstate::flaky, "cyan"},
 };
 
-const map<string, Color>textToColorMap{ // for setting color
-	{"white", Color::white},
-	{"light_gray", Color::light_gray},
-	{"mid_gray", Color::mid_gray},
-	{"green", Color::green},
-	{"yellow", Color::yellow},
-	{"red", Color::red},
-	{"black", Color::black},
-	{"cyan", Color::cyan},
-};
+ const map<string, Color>textToColorMap{
+	 // for setting FLTK- color from text
+	 {"white", Color::white},
+	 {"light_gray", Color::light_gray},
+	 {"mid_gray", Color::mid_gray},
+	 {"green", Color::green},
+	 {"yellow", Color::yellow},
+	 {"red", Color::red},
+	 {"black", Color::black},
+	 {"cyan", Color::cyan},
+ };
 
-int APSunit::sensorId = 0;
+ int APSunit::sensorId = 0;
 
 APSunit::APSunit(int sno, string name, string tag, Point loc, string descr)
 	: unitSerialNo{ sno }, name{ name }, nameTag{ tag }, location{ loc },
@@ -81,7 +82,6 @@ void initSensors(Vector_ref<APSunit>& allSensors, const string sensorsFileName) 
 			allSensors.push_back(new APSunit{ sno, name, tla, 
 									Point{ xCoord, yCoord }, description});
 			cout << "APS sensor loaded: " << allSensors[allSensors.size() - 1] << endl;
-
 			sensFile >> sno; // for next sensor
 		}
 	}
