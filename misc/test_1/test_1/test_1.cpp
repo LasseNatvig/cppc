@@ -1,17 +1,20 @@
 #include "std_lib_facilities.h"
 
-int main() {
-	//cout << dec << 1234 << "\t(decimal)\n"
-	//	 << hex << 1234 << "\t(hexadecimal)\n"
-	//	 << oct << 1234 << "\t(octal)\n";
-	//// The '\t' character is “tabulator” 
-
-	cout << 1234.56789 << "\t\t(defaultfloat)\n"
-		 << fixed << 1234.56789 << "\t(fixed)\n"
-		 << scientific << 1234.56789 << "\t(scientific)\n";
 
 
-}
+
+//int main() {
+//	//cout << dec << 1234 << "\t(decimal)\n"
+//	//	 << hex << 1234 << "\t(hexadecimal)\n"
+//	//	 << oct << 1234 << "\t(octal)\n";
+//	//// The '\t' character is “tabulator” 
+//
+//	cout << 1234.56789 << "\t\t(defaultfloat)\n"
+//		 << fixed << 1234.56789 << "\t(fixed)\n"
+//		 << scientific << 1234.56789 << "\t(scientific)\n";
+//
+//
+//}
 
 
 //struct Date {

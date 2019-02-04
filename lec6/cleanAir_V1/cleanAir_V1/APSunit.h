@@ -30,7 +30,8 @@ class APSunit {
 	string description; // Description of where to find the actual sensor when your are close to the location, can be updated via set_description();
 	const string nameTag; // Short three letter name, cannot be changed
 	const int unitSerialNo = 0; // serial number for the given unit, read from file, cannot be changed
-	static int sensorId;  // must be initialized as global variable since it is static (shared for all objects)
+	static int sensorId;  // Must be initialized as global variable since it is static (shared for all objects)
+	                      // The purpose of sensorId is to count the number of sensors we have to be able to assign identity numbers in sequence 
 	const int myId = 0; // An unique identity number (id) assigned to the sensors during initialization, cannot be changed
 	Vector_ref<Shape> display;
 public:
