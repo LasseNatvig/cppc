@@ -60,10 +60,6 @@ void APSunit::set_state(const APSstate s) {
 ostream& operator<<(ostream& os, APSunit& unit) {
 	return os << unit.get_myId() << " " << unit.get_name() << " " << unit.get_nameTag() << " " 
 			<< stateColortextMap.at(unit.get_state());  
-			// .at is safer than [ ] since it is rangechecked. If XXX MAP, KANSKJE DEN ANDRE, teste der
-	// MER SANNSYNLIG at en glemmer en farge enn en state ... does not 
-			// contain the state or textColorMap does not contain the color a range error will be thrown
-			// *** TODO, TEST demo forskjell [] --- WORK IN PROGRESS
 }
 void initSensors(Vector_ref<APSunit>& allSensors, const string sensorsFileName) {
 	ifstream sensFile{ sensorsFileName };
