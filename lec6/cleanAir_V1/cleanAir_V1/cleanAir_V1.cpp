@@ -37,7 +37,7 @@ int main() try {
 		time.set_font_size(30);
 		win.attach(time);
 		updateSensors(allSensors);
-		win.wait_for_button();
+		win.wait_for_button(); // Since all the sensors were attached to the window every update will be displayed here 
 		cout << "... Luftforurensingsstatus klokken " + to_string(hour) + " er vist (IKKE implementert enda)\n";
 	}
 }

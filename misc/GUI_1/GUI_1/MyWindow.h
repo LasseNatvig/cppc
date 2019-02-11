@@ -6,7 +6,6 @@ using namespace Graph_lib;
 
 struct MyWindow : Window {
 	MyWindow(Point topLeft, int w, int h, const string& title);
-	Vector_ref<Shape> discs;
 private:
 	Button start_button;
 	Button quit_button;
@@ -16,6 +15,7 @@ private:
 	Menu colorMenu; // Menu from GUI.h is a collection of buttons
 
 	In_box noOfDiscs;
+	Vector_ref<Shape> discs;
 	Out_box radius;
 
 	static void cb_start(Address, Address); // callback for start_button
@@ -32,5 +32,5 @@ private:
 	void blue_pressed();
 	void green_pressed();
 
-	void drawDiscs(Color color); // draw 10 random discs with given color
+	void drawDiscs(Color color); // draw discs with given color
 };

@@ -1,4 +1,8 @@
 // Example program GUI_1.cpp, simple GUI elements  - commented
+
+// The following pragma turns off the console
+#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
+
 #include "GUI.h"
 #include "Graph.h"
 #include "MyWindow.h"
@@ -8,6 +12,5 @@ int main() {
 	srand(0);
 	MyWindow win1{ Point{550, 80}, 300, 400, "MyWindow 1" };
 	MyWindow win2{ Point{1000, 80}, 400, 300, "MyWindow 2" };
-
 	return gui_main();
 }

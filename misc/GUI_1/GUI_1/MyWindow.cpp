@@ -11,22 +11,18 @@ MyWindow::MyWindow(Point topLeft, int w, int h, const string& title) : Window{ t
 	name(title),
 	colorMenu{ Point{x_max() - 80, 40}, 70, 20, Menu::vertical, "color" },
 	noOfDiscs{ Point{160, 10}, 50, 20, "discs"},
-	radius{ Point{130, 40}, 100, 20, "radius"}  // These values show that Out_box appears on top of red-button since it is attached later 
+	radius{ Point{130, 40}, 80, 20, "radius"} 
 {
-
 	attach(start_button);
 	attach(quit_button);
+
 	colorMenu.attach(new Button{ Point{0, 0}, 0, 0, "red", cb_red });
 	colorMenu.attach(new Button{ Point{0, 0}, 0, 0, "blue", cb_blue });
 	colorMenu.attach(new Button{ Point{0, 0}, 0, 0, "green", cb_green });
-	attach(colorMenu);
-	colorMenu.hide();
-	attach(end_button);
-	end_button.hide();
-	attach(noOfDiscs);
-	noOfDiscs.hide();
-	attach(radius);
-	radius.hide();
+	attach(colorMenu); colorMenu.hide();
+	attach(end_button); end_button.hide();
+	attach(noOfDiscs); noOfDiscs.hide();
+	attach(radius); radius.hide();
 }
 void MyWindow::start() {
 	cout << name + ": start called\n";
@@ -41,12 +37,12 @@ void MyWindow::end() {
 	end_button.hide();
 	// Opprett meny her, som logger i text vindu, med end-valg, eet objekt?
 }
-void MyWindow::cb_start(Address, Address pw) { reference_to<MyWindow>(pw).start(); }
-void MyWindow::cb_quit(Address, Address pw) { reference_to<MyWindow>(pw).quit(); }
-void MyWindow::cb_red(Address, Address pw) { reference_to<MyWindow>(pw).red_pressed(); }
-void MyWindow::cb_blue(Address, Address pw) { reference_to<MyWindow>(pw).blue_pressed(); }
-void MyWindow::cb_green(Address, Address pw) { reference_to<MyWindow>(pw).green_pressed(); }
-void MyWindow::cb_end(Address, Address pw) { reference_to<MyWindow>(pw).end(); }
+void MyWindow::cb_start(Address, Address win) { reference_to<MyWindow>(win).start(); }
+void MyWindow::cb_quit(Address, Address win) { reference_to<MyWindow>(win).quit(); }
+void MyWindow::cb_red(Address, Address win) { reference_to<MyWindow>(win).red_pressed(); }
+void MyWindow::cb_blue(Address, Address win) { reference_to<MyWindow>(win).blue_pressed(); }
+void MyWindow::cb_green(Address, Address win) { reference_to<MyWindow>(win).green_pressed(); }
+void MyWindow::cb_end(Address, Address win) { reference_to<MyWindow>(win).end(); }
 
 void MyWindow::red_pressed() {
 	cout << name + ": red pressed\n";
@@ -69,7 +65,7 @@ void MyWindow::drawDiscs(Color color) {
 		int r = 1 + rand() % 40;
 		radi += "r=" + to_string(r) + " ";
 		discs.push_back(new Circle{ Point{10 + (rand() % (x_max() - 10)),
-										  140 + (rand() % (y_max() - 60))}, r});
+										  100 + (rand() % (y_max() - 60))}, r});
 		discs[discs.size() - 1].set_fill_color(color);
 		attach(discs[discs.size() - 1]);
 	}
