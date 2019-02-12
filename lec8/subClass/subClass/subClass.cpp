@@ -51,7 +51,7 @@ int main() {
 	cout << t.toString() << endl;
 	cout << s.toString() << endl;
 
-	vector<Person> persons;
+	vector<Person> persons; 
 	persons.push_back(p);
 	persons.push_back(t); // upcasting, t is also a Person-object
 	persons.push_back(s); // upcasting, s is also a Person-object 
