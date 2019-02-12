@@ -4,7 +4,7 @@ class Date {
 private:
 	int year;
 	int month;
-	int day;
+	int day; 
 public:
 	Date(int y, int m, int d);
 	// ostream& operator<<(ostream& out, const Date &d); // Error, does not compile

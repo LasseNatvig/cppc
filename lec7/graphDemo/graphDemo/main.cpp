@@ -1,6 +1,18 @@
 // graphDemo.cpp
 #include "Graph.h"
 #include "Simple_window.h" 
+
+// class derived from Shape that does not have its own draw-line function
+struct TestClass : Shape { // A very dumb class that always draws a red line (100,100) -- (200,200)
+	TestClass() {
+		Point p1{ 100,100 };
+		Point p2{ 200,200 };
+		add(p1);  // 
+		add(p2);
+		set_color(Color::red);
+	}
+};
+
 int main() {
 	using namespace Graph_lib;
 	Point tl{ 100, 100 };
@@ -23,4 +35,10 @@ int main() {
 	win.wait_for_button();
 	r.move(50, 50);
 	win.wait_for_button();
+
+	TestClass test;
+	win.attach(test);
+	win.wait_for_button(); // will draw all Shapes attached to win, and for the 
+		// TestClass object test the draw_lines function of Shape will be called
+
 }

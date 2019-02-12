@@ -3,7 +3,7 @@
 
 struct Student {
 	string firstName;
-	string lastName;
+	string lastName; 
 	int id;
 };
 ostream& operator<<(ostream& os, const Student& s) {
