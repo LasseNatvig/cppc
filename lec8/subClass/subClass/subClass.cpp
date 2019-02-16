@@ -16,7 +16,9 @@ string Person::toString() const {
 	return name + ", ssn = " + ssn; 
 }
  
-class Student : public Person {
+//class Student : public Person {
+struct Student : Person {// Two equivalent declarations 
+						 // of class Student, see PPP 14.3.2
 private:
 	string program;
 public:

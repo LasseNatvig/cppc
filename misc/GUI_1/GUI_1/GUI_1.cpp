@@ -14,3 +14,4 @@ int main() {
 	MyWindow win2{ Point{1000, 80}, 400, 300, "MyWindow 2" };
 	return gui_main();
 }
+
