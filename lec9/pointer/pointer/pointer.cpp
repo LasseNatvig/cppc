@@ -33,6 +33,13 @@ int main() {
 
 	}
 
+	{
+		typedef int* intPtr; // 
+		intPtr p1;
+		intPtr p2 = nullptr;
+		cout << *p1 << " " << *p2;   // *p2 gir exception i debugger, fint å vise
+	}
+
 	cout << "\nType any char + return to quit:";
 	char c;
 	cin >> c;
