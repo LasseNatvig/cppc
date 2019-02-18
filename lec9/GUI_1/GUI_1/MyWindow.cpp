@@ -3,7 +3,7 @@
 #include "Graph.h"
 #include "MyWindow.h"
 using namespace Graph_lib;
-// sorry for magic numbers an non-scalable layout
+// sorry for magic numbers and non-scalable layout
 MyWindow::MyWindow(Point topLeft, int w, int h, const string& title) : Window{ topLeft, w, h, title },
 	start_button{ Point{10, 10}, 70, 20, "Start", cb_start },
 	quit_button{ Point{x_max() - 80, 10}, 70, 20, "Quit", cb_quit },
@@ -35,7 +35,6 @@ void MyWindow::end() {
 	cout << name + ": end called\n";
 	colorMenu.hide();
 	end_button.hide();
-	// Opprett meny her, som logger i text vindu, med end-valg, eet objekt?
 }
 void MyWindow::cb_start(Address, Address win) { reference_to<MyWindow>(win).start(); }
 void MyWindow::cb_quit(Address, Address win) { reference_to<MyWindow>(win).quit(); }
