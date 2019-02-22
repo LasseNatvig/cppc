@@ -9,9 +9,9 @@ int main() {
 	double realNum = 22.33;
 	int *intPtr; // a pointer to int
 	double* doublePtr; // a pointer to double
-	intPtr = &num;
+	intPtr = &num; // & is address of operator
 	doublePtr = &realNum;
-	cout << *intPtr << " " << *doublePtr << endl;
+	cout << *intPtr << " " << *doublePtr << endl; // * is dereferencing operator
 
 	{ // A much better way of doing exactly the same
 		int num = 10;
@@ -37,7 +37,7 @@ int main() {
 		typedef int* intPtr; // 
 		intPtr p1;
 		intPtr p2 = nullptr;
-		cout << *p1 << " " << *p2;   // *p2 gir exception i debugger, fint å vise
+		//cout << *p1 << " " << *p2;   // *p2 gir exception i debugger, fint å vise
 	}
 
 	cout << "\nType any char + return to quit:";

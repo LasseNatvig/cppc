@@ -1,4 +1,6 @@
 // myVector_1.cpp, note this is an "empty project" without the PPP scaffolding
+// The example shows the first step towards a proper implementation of vector
+//
 #include<iostream>
 using namespace std;
 // our own implementation of vector, based on PPP chapter 17
@@ -27,6 +29,16 @@ int main() {
 	age.set(2, 27.2);
 	age.set(3, 54.2);
 
+	// Iterate through the vector  **** Vis feilmeldinger og diskuter på slide ... 
+	//for (double d : age) cout << d;  //
+	
+	//for (int i = 0; i < age.size(); i++) {
+	//	cout << age[i] << " ";
+	//}
+
+	for (int i = 0; i < age.size(); i++) {
+		cout << age.get(i) << " ";
+	}
 
 	cout << "\nType any char + return to quit:";
 	char c;
