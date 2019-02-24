@@ -2,7 +2,7 @@
   The example shows the third step towards a proper implementation of vector,
   it builds on myVector_1 and ...2.cpp.
   - new in this version of myVector is copy constructor, copy assignment operator=,
-	and indexixing operator [ ]
+	and indexing operator [ ]
  */
 #include<iostream>
 #include<math.h> //
@@ -79,7 +79,6 @@ try {
 		printVector(v2);
 		cout << endl;
 	}
-
 
 	cout << "\nType any char + return to quit:";
 	char c; cin >> c;

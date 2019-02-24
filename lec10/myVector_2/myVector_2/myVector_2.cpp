@@ -23,16 +23,10 @@ public:
 	void set(int n, double v) { elem[n] = v; }
 };
 
-void useVector(myVector& v) {
+void setVector(myVector& v) {
 	for (int i = 0; i < v.size(); i++)
 		v.set(i, static_cast<double>(sqrt(i)));
 }
-
-void useVectorBug(myVector& v) {
-	for (int i = 1; i < v.size(); i++)
-		v.set(i, static_cast<double>(sqrt(i)));
-}
-
 
 void printVector(myVector& v) {
 	for (int i = 0; i < v.size(); i++)
@@ -40,35 +34,35 @@ void printVector(myVector& v) {
 }
 void memoryLeak(int x) {
 	myVector v(x);
-	useVector(v);
+	setVector(v);
 	//... cleanup missing, or not?
-
 }
 int main()
 try {
 	myVector doubleVec(10);
-	useVector(doubleVec);
+	setVector(doubleVec);
 	printVector(doubleVec);
 	
 	// demonstrate memory leakage
-	//cout << "One double is " << sizeof(double) << " bytes\n";
-	//for (int i = 0; i < 1000; i++)
-	//	memoryLeak(1000000);
+	cout << "One double is " << sizeof(double) << " bytes\n";
+	for (int i = 0; i < 1000; i++)
+		memoryLeak(1000000);
 
 	//{ // demonstrate the danger of C-arrays not being range-checked
 	//	myVector test(10);
-	//	useVectorBug(test);
-	//	cout << endl; 
-	//	printVector(test);
+	//	cout << test.get(-7);  // can read outside the vector !
+	//	test.set(20, 777);
+	//	cout << endl << test.get(20); // can write outside the vector!!! Don't do this!
+
 	//}
 
-	// demonstrate missing copy constructor, Chap. 18
-	{	
-		myVector v(3);
-		v.set(2, 2.2);
-		myVector v2 = v;
-		cout << endl;
-	}						// Program will crash when leaving scope
+	//// demonstrate missing copy constructor, Chap. 18
+	//{	
+	//	myVector v(3);
+	//	v.set(2, 2.2);
+	//	myVector v2 = v;
+	//	cout << endl;
+	//}					  // Program will crash when leaving scope
 
 	cout << "\nType any char + return to quit:";
 	char c; cin >> c;

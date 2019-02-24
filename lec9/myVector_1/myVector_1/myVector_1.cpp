@@ -21,7 +21,6 @@ myVector::myVector(int s) // constructor implementation
 		// store a pointer to those doubles in elem
 { }
 
-
 int main() {
 	myVector age(4);
 	age.set(0, 0.33);
@@ -29,12 +28,6 @@ int main() {
 	age.set(2, 27.2);
 	age.set(3, 54.2);
 
-	// Iterate through the vector  **** Vis feilmeldinger og diskuter på slide ... 
-	//for (double d : age) cout << d;  //
-	
-	//for (int i = 0; i < age.size(); i++) {
-	//	cout << age[i] << " ";
-	//}
 
 	for (int i = 0; i < age.size(); i++) {
 		cout << age.get(i) << " ";
