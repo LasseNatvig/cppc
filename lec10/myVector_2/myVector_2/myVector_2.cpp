@@ -3,8 +3,8 @@
   it builds on myVector_1.cpp. Some codelines are commented only or in more detail 
   in the myVector_1.cpp since we expect the reader to study example by example.
   - the definition of the constructor of myVector is here moved inline 
-  - example is used in lecture to demonstrate memory leak, and motivate 
-    the concept destructor
+  - example is used in lecture to demonstrate memory leak, to motivate 
+    the concept destructor, and the danger of C-arrays not being range-checked.
 */
 #include<iostream>
 #include<math.h> //
@@ -14,7 +14,9 @@ class myVector {
 	double* elem; // pointer to the first element
 public:
 	myVector(int s) : sz{ s }, 
-		elem{ new double[s] }{} // allocate s doubles
+		elem{ new double[s] }{ // allocate s doubles
+		for (int i = 0; i < sz; i++) elem[i] = 0.0; // initialize
+	}
 	~myVector() { delete[] elem; } // destructor
 	int size() const { return sz; }	// the current size
 	double get(int n) const { return elem[n]; } // PPP 17.6
@@ -25,6 +27,13 @@ void useVector(myVector& v) {
 	for (int i = 0; i < v.size(); i++)
 		v.set(i, static_cast<double>(sqrt(i)));
 }
+
+void useVectorBug(myVector& v) {
+	for (int i = 1; i < v.size(); i++)
+		v.set(i, static_cast<double>(sqrt(i)));
+}
+
+
 void printVector(myVector& v) {
 	for (int i = 0; i < v.size(); i++)
 		cout << v.get(i) << " "; 
@@ -41,8 +50,25 @@ try {
 	useVector(doubleVec);
 	printVector(doubleVec);
 	
-	for (int i = 0; i < 1000; i++)
-		memoryLeak(1000000);
+	// demonstrate memory leakage
+	//cout << "One double is " << sizeof(double) << " bytes\n";
+	//for (int i = 0; i < 1000; i++)
+	//	memoryLeak(1000000);
+
+	//{ // demonstrate the danger of C-arrays not being range-checked
+	//	myVector test(10);
+	//	useVectorBug(test);
+	//	cout << endl; 
+	//	printVector(test);
+	//}
+
+	// demonstrate missing copy constructor, Chap. 18
+	{	
+		myVector v(3);
+		v.set(2, 2.2);
+		myVector v2 = v;
+		cout << endl;
+	}						// Program will crash when leaving scope
 
 	cout << "\nType any char + return to quit:";
 	char c; cin >> c;

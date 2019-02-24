@@ -11,7 +11,7 @@ private:
 	Button quit_button;
 	Button end_button;
 
-	string name;  // Stores title of window. TODO is stored somewhere inside, but how to get access to it?
+	string name;  // Stores title of window
 	Menu colorMenu; // Menu from GUI.h is a collection of buttons
 
 	In_box noOfDiscs;
@@ -25,7 +25,7 @@ private:
 	static void cb_green(Address, Address); // callback for green_button
 	static void cb_end(Address, Address); // callback for end_button
 
-	void start(); // action to be done when start_button is pressed, defined below
+	void start(); // action to be done when start_button is pressed
 	void quit() { cout << name + ": quit called\n"; hide(); } // action to be done when quit_button is pressed, placed inline. For hide(), see PPP page 567
 	void end();
 	void red_pressed();
