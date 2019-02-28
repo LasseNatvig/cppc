@@ -41,7 +41,7 @@ void localArr(int n) {
 void arrayInit() { // PPP 18.6.3.
 	int ai[] = { 1, 2, 3, 4, 7 };
 	//int bi[] = {}; // error
-	int ci[4] = {}; // OK, since we know the size, elements filled wit 0'es
+	int ci[4] = {}; // OK, since we know the size, elements filled with 0'es
 	int di[4] = { 1,2 }; // OK, result is {1, 2, 0, 0}
 }
 

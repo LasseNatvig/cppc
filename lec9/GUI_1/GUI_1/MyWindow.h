@@ -4,7 +4,7 @@
 #include "Graph.h"
 using namespace Graph_lib;
 
-struct MyWindow : Window {
+struct MyWindow : Graph_lib::Window {
 	MyWindow(Point topLeft, int w, int h, const string& title);
 private:
 	Button start_button;
