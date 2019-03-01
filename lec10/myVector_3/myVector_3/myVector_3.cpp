@@ -2,11 +2,17 @@
   The example shows the third step towards a proper implementation of vector,
   it builds on myVector_1 and ...2.cpp.
   - new in this version of myVector is copy constructor, copy assignment operator=,
-	and indexing operator [ ]
+    initializer-list constructor
+	and indexing operator [ ]  UPDATE ********************************************************************
  */
 #include<iostream>
-#include<math.h> //
 using namespace std;
+
+struct myVectorRangeError {
+	int wrongIndex;
+	myVectorRangeError(int i) : wrongIndex(i) {}
+};
+
 class myVector {
 	int sz;	// the number of elements (“the size”)
 	double* elem; // pointer to the first element
@@ -21,7 +27,28 @@ public:
 	int size() const { return sz; }	// the current size
 	double get(int n) const { return elem[n]; } // PPP 17.6
 	void set(int n, double v) { elem[n] = v; }
+	myVector(initializer_list<double> lst);   // initializer-list constructor
+	double& operator[](int i) { return elem[i]; }  // unchecked access via []
+	double operator[](int i) const { return elem[i]; }   // unchecked const access via []
+	double& at(int i); // checked access
+	const double& at(int i) const; // checked const access
 };
+
+myVector::myVector(initializer_list<double> lst) // initializer-list constructor
+	: sz{ static_cast<int>(lst.size()) }, // static_cast: assume size fits in an int
+	elem{ new double[sz] } {
+	copy(lst.begin(), lst.end(), elem); // copy lst to elem copy from std lib See B.5.2
+}
+
+double & myVector::at(int i) {
+	if (i < 0 || i >= sz) throw myVectorRangeError(i);
+	return elem[i];
+}
+const double & myVector::at(int i) const {
+	if (i < 0 || i >= sz) throw myVectorRangeError(i);
+	return elem[i];
+
+}
 
 myVector::myVector(const myVector& arg)
 	:sz{ arg.sz },
@@ -80,8 +107,45 @@ try {
 		cout << endl;
 	}
 
+	// Test initializer list
+	{
+		myVector v1{ 1,2,3 };
+		myVector v2(3);
+		printVector(v1);
+		cout << endl;
+		printVector(v2);
+		cout << endl;
+	}
+
+	// Test operator[] access
+	{
+		myVector v(10);
+		for (int i = 0; i < v.size(); ++i) {
+			v[i] = i; // v[i] returns a reference to the ith element
+			cout << v[i];
+		}
+		cout << endl;
+		// test operator[ ] const
+		myVector const vReadOnly{ 8, 9, 11 };
+		for (int i = 0; i < vReadOnly.size(); ++i) {
+			cout << vReadOnly[i];
+		}
+	}
+
+	// Test unchecked access with [] and checked access with .at()
+	{
+		myVector v(5);
+		cout << v[100] << endl;
+		cout << v.at(100) << endl;
+	}
+
 	cout << "\nType any char + return to quit:";
 	char c; cin >> c;
+}
+catch (myVectorRangeError& e) {
+	cerr << "Range error in myVector at index: " 
+		 << e.wrongIndex << endl;
+	return -2;
 }
 catch (exception& e) {
 	cerr << "error: " << e.what() << endl;
