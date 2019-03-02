@@ -2,8 +2,10 @@
   The example shows the third step towards a proper implementation of vector,
   it builds on myVector_1 and ...2.cpp.
   - new in this version of myVector is copy constructor, copy assignment operator=,
-    initializer-list constructor
-	and indexing operator [ ]  UPDATE ********************************************************************
+    initializer-list constructor, operator [] for unchecked access and at() function
+	for checked access. Also const version of both access methods
+  - struct myVectorRangeError is used to report range error found by the at() function
+
  */
 #include<iostream>
 using namespace std;
