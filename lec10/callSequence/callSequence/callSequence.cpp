@@ -14,16 +14,17 @@ public:
 		name = other.name;
 		cout << "Person - copy constructor" << endl;
 	}
-	~Person() {
-		cout << "Person - destructor" << endl;
-	}
-	Person& operator=(const Person& rhs) {
+	Person& operator=(const Person& rhs) {  // rhs is short for right-hand-side. lhs is left-hs. (lhs = rhs)
 		this->name = rhs.name;
 		cout << "Person - assignment-operator" << endl;
 		return *this;
 	}
+	~Person() {
+		cout << "Person - destructor" << endl;
+	}
+
 	//Person& operator=(Person rhs) { // with copy-and-swap
-	//	swap(name, rhs.name);
+	//	swap(name, rhs.name);  // this is useful when we already have a copy-constructor
 	//	cout << "Person - assignment-operator" << endl;
 	//	return *this;
 	//}
@@ -43,16 +44,18 @@ public:
 		cout << "Student - copy constructor" << endl;
 	}
 
-	~Student() {
-		cout << "Student - destructor" << endl;
-	}
-
 	Student& operator=(const Student& rhs) {
-		Person::operator=(rhs);  // Note
+		Person::operator=(rhs);  
 		this->id = rhs.id;
 		cout << "Student - assignment-operator" << endl;
 		return *this;
 	}
+
+	~Student() {
+		cout << "Student - destructor" << endl;
+	}
+
+
 	//Student& operator=(Student rhs) { // with copy-and-swap
 	//	Person::operator=(rhs);
 	//	swap(id, rhs.id);

@@ -116,7 +116,7 @@ try {
 		myVector<char> cv{ 'a', 'c', 'd', 'x' };
 		print(cv);
 		cv[2] = 'c';
-		cv[5] = '#';  // not good, writes out of range
+		//cv[5] = '#';  // not good, writes out of range
 		print(cv);
 		// cv.at(5) = 'y';  // throws an exception, as it should
 		cv.at(2) = '*';

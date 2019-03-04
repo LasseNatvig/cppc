@@ -5,7 +5,7 @@
 using namespace std;
 
 constexpr int sizeA = 5;
-int globalA[sizeA]; // global array. MAYBE initialized to zeros, but do not trust it
+int globalA[sizeA];     // global array. MAYBE initialized to zeros, but do not trust it
 
 void normalAccessGlobalArr() { /* Demonstrates access to a global array. It is known everywhere in your
 	program so you do not need to pass it as parameter. HOWEVER, always try to avoid global variables! */
@@ -39,14 +39,15 @@ void localArr(int n) {
 }
 
 void arrayInit() { // PPP 18.6.3.
-	int ai[] = { 1, 2, 3, 4, 7 };
-	//int bi[] = {}; // error
+	int ai[] = { 1, 2, 3, 4, 7 }; // size is given by init. list
+	//int bi[] = {}; // error, size unknown
 	int ci[4] = {}; // OK, since we know the size, elements filled with 0'es
 	int di[4] = { 1,2 }; // OK, result is {1, 2, 0, 0}
 }
 
 int sumArray(int arr[], int n) {  // a classical function
-	// with an array as argument (of unnown size) and its size as following argument
+	// with an array as argument (of unknown size) and 
+	// its size as following argument
 	int sum = 0;
 	for (int i = 0; i < n; i++) {
 		sum += arr[i];
@@ -57,26 +58,26 @@ int sumArray(int arr[], int n) {  // a classical function
 void twoDimensional() {
 	const int m = 4;
 	int twoDim[m][m]; // a 4 x 4 array of int
-	for (int i = 0; i < m; i++) 
-		for (int j = 0; j < m; j++) {
-			twoDim[i][j] = (i+1) * 1000 + j;
-		}
-	for (int i = 0; i < m; i++) {
+	for (int i = 0; i < m; i++) // set values
+		for (int j = 0; j < m; j++)
+			twoDim[i][j] = (i + 1) * 1000 + j;
+
+	for (int i = 0; i < m; i++) { // print
 		cout << setw(6) << setfill('0');
 		cout << "\n i = " << i << " : ";
-		for (int j = 0; j < m; j++) {
+		for (int j = 0; j < m; j++)
 			cout << twoDim[i][j] << " ";
-		}
 	}
 	cout << endl;
 }
+
 
 void cStrings() {
 	char a[] = "abcde"; // C-strings are indexed from 0
 	// Note, only character arrays can be initialized with literal strings
 	cout << "size of a in bytes: " << sizeof(a) << endl;  //prints 6, why? --- C-strings are zero-terminated. Check it in the debugger
 	cout << a << ", " << a[0] << " " << a[4] << endl;
-	a[5] = 'X'; // destroys zero-terminated by will
+	a[5] = 'X'; // destroys zero-termination by will
 	cout << a << endl; // Shows string is destroyed
 }
 
