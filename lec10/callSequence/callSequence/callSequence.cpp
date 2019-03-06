@@ -15,7 +15,7 @@ public:
 		cout << "Person - copy constructor" << endl;
 	}
 	Person& operator=(const Person& rhs) {  // rhs is short for right-hand-side. lhs is left-hs. (lhs = rhs)
-		this->name = rhs.name;
+		name = rhs.name;
 		cout << "Person - assignment-operator" << endl;
 		return *this;
 	}
@@ -46,7 +46,7 @@ public:
 
 	Student& operator=(const Student& rhs) {
 		Person::operator=(rhs);  
-		this->id = rhs.id;
+		id = rhs.id;
 		cout << "Student - assignment-operator" << endl;
 		return *this;
 	}

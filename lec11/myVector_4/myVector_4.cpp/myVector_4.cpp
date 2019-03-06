@@ -141,7 +141,7 @@ try {
 		vector<double> properVector{ 1.1, 2.2, 3.3 };
 		for (auto e : properVector) cout << e << " ";
 		myVector<double> dv1{ 1.1, 2.2, 3.3 };
-		//for (auto e : dv1) cout << e << " ";
+		// for (auto e : dv1) cout << e << " ";
 	}
 	
 	cout << "\nType any char + return to quit:";
