@@ -12,7 +12,7 @@ vector<int>*make_vecOld() {
 	return p;
 }
 
-vector<int>*make_vecModern() {
+vector<int>*make_vecModern() { /// PPP page 703 - top
 	unique_ptr<vector<int>> p{ new vector<int> };
 	p->push_back(3);
 	p->push_back(-2);
@@ -20,7 +20,7 @@ vector<int>*make_vecModern() {
 	return p.release();  // returns the pointer
 }
 
-unique_ptr<vector<int>> make_vecBetter() {
+unique_ptr<vector<int>> make_vecBetter() { /// PPP page 703 - bottom
 	unique_ptr<vector<int>> p{ new vector<int> };
 	p->push_back(3);
 	p->push_back(-2);
@@ -47,12 +47,11 @@ int main() {
 	uniPtr2 = move(uniPtr); // transfer ownership of unique ptr 
 	// value of uniPtr is now unspecified
 	auto uPtr = move(uniPtr2);  // 
-	// value of uniPtr is now unspecified
+	// value of uniPtr2 is now unspecified
+
 	// It is always one and only one pointer to the memory, and the
 	// unique_ptr will always call delete when it leaves scope
 
-
-	////
 	////... demo forskjell vanlig peker og unique_ptr
 	//// create unique ptr using unique_ptr's constructor 
 	//unique_ptr<Student> s2{ new Student("lana") };
