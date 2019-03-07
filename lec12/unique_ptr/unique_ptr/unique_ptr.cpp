@@ -27,6 +27,15 @@ unique_ptr<vector<int>> make_vecBetter() { /// PPP page 703 - bottom
 	return p;  // returns unique_ptr
 }
 
+vector<int> make_vecMove() { /// PPP 19.5.5 
+	vector<int> res;
+	res.push_back(3);
+	res.push_back(-2);
+	return res;  // return by move constructor
+}
+
+
+
 int main() {
 	vector<int>* ivPtr;
 	vector<int>* ivPtr2;
@@ -51,6 +60,11 @@ int main() {
 
 	// It is always one and only one pointer to the memory, and the
 	// unique_ptr will always call delete when it leaves scope
+
+	auto v = make_vecMove();
+	for (auto e : v) cout << e << " ";
+
+
 
 	////... demo forskjell vanlig peker og unique_ptr
 	//// create unique ptr using unique_ptr's constructor 
