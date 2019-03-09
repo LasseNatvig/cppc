@@ -34,8 +34,6 @@ vector<int> make_vecMove() { /// PPP 19.5.5
 	return res;  // return by move constructor
 }
 
-
-
 int main() {
 	vector<int>* ivPtr;
 	vector<int>* ivPtr2;
@@ -63,16 +61,4 @@ int main() {
 
 	auto v = make_vecMove();
 	for (auto e : v) cout << e << " ";
-
-
-
-	////... demo forskjell vanlig peker og unique_ptr
-	//// create unique ptr using unique_ptr's constructor 
-	//unique_ptr<Student> s2{ new Student("lana") };
-	////create unique_ptr using make_unique
-	//unique_ptr<Student> s1 = make_unique<Student>("daso");
-	//
-	//// transfer ownership of unique ptr 
-	//auto s3 = move(s1);
-	//// value of s1 is now unspecified 
 }
