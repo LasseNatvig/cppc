@@ -20,14 +20,14 @@ vector<int>*make_vecModern() { /// PPP page 703 - top
 	return p.release();  // returns the pointer
 }
 
-unique_ptr<vector<int>> make_vecBetter() { /// PPP page 703 - bottom
+unique_ptr<vector<int>> make_vecBetter() { // PPP page 703 - bottom
 	unique_ptr<vector<int>> p{ new vector<int> };
 	p->push_back(3);
 	p->push_back(-2);
 	return p;  // returns unique_ptr
 }
 
-vector<int> make_vecMove() { /// PPP 19.5.5 
+vector<int> make_vecMove() { // PPP 19.5.5 
 	vector<int> res;
 	res.push_back(3);
 	res.push_back(-2);
