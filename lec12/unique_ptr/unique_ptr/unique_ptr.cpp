@@ -1,3 +1,4 @@
+// unique_ptr.cpp
 #include <iostream>
 #include <string>
 #include <vector>
@@ -28,7 +29,7 @@ unique_ptr<vector<int>> make_vecBetter() { // PPP page 703 - bottom
 }
 
 vector<int> make_vecMove() { // PPP 19.5.5 
-	vector<int> res;
+	vector<int> res;  // this is the best solution
 	res.push_back(3);
 	res.push_back(-2);
 	return res;  // return by move constructor
@@ -40,7 +41,7 @@ int main() {
 	ivPtr = make_vecOld();
 	ivPtr2 = ivPtr;
 	delete ivPtr;	
-	//delete ivPtr2;  // error, crash, multiple deleted on same pointer
+	//delete ivPtr2;  // error, crash, multiple delete on same pointer
 
 	ivPtr = make_vecModern();
 	ivPtr2 = ivPtr;

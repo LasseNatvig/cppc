@@ -28,7 +28,7 @@ public:
 	myVector(const myVector&);	// copy constructor, defined below
 	myVector& operator=(const myVector& arg); // copy assignment, defined below 
 	myVector(myVector&& a); // move constructor, defined below
-	myVector& operator=(myVector&&); // move assignment, defined below
+	myVector& operator=(myVector&& a); // move assignment, defined below
 	~myVector() { delete[] elem; } // destructor
 	int size() const { return sz; }	// the current size
 	T get(int n) const { return elem[n]; } // PPP 17.6
