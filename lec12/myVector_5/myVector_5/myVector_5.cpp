@@ -150,13 +150,14 @@ try {
 	print(dv2);
 
 	cout << "\nCase b:";
-	myVector<double> dv3{}; // both move constructor and move assignment !?
-	dv3 = fill(5);
+	myVector<double> dv3{}; 
+	dv3 = fill(5); // Move is selected by compiler 
+		// in return from function. First an unnamed object is constructed by move constructor, and then assigned to dv3 by move assignment
 	print(dv3);
 
 	cout << "\nCase c:\n";
 	myVector<double> dv4{};
-	dv4 = dv3; // plain assignment operator
+	dv4 = dv3; // copy assignment operator
 	print(dv3);
 	print(dv4);
 

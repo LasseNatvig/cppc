@@ -35,6 +35,13 @@ vector<int> make_vecMove() { // PPP 19.5.5
 	return res;  // return by move constructor
 }
 
+unique_ptr<vector<int>> make_vec_make_unique()        // make a filled vector
+{
+	auto p = make_unique<vector<int>>();  // allocate on free store
+	   // … fill the vector with data; this may throw an exception …
+	return p;
+}
+
 int main() {
 	vector<int>* ivPtr;
 	vector<int>* ivPtr2;
@@ -62,4 +69,9 @@ int main() {
 
 	auto v = make_vecMove();
 	for (auto e : v) cout << e << " ";
+
+
+
+
+
 }
