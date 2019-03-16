@@ -8,24 +8,24 @@ int main() {
 	{
 		cout << "Part 1)\n";
 		vector<int> v{ 1,2,4,2,4,1,8 };
-		vector<int>::iterator it;
-		for (it = v.begin(); it != v.end(); it++) {
+		for (vector<int>::iterator it = v.begin();
+			 it != v.end(); it++) {
 			cout << *it << " ";
 		}
 		cout << endl;
 	}
 	{
 		set<int> s{ 1,4,2,4,4,2 };
-		set<int>::iterator it;
-		for (it = s.begin(); it != s.end(); it++) {
+		for (set<int>::iterator it = s.begin();
+				it != s.end(); it++) {
 			cout << *it << " ";
 		}
 		cout << endl;
 	}
 	{
 		multiset<int> ms{ 1,4,2,4,4,2 };
-		multiset<int>::iterator it;
-		for (it = ms.begin(); it != ms.end(); it++) {
+		for (multiset<int>::iterator it = ms.begin();
+				it != ms.end(); it++) {
 			cout << *it << " ";
 		}
 		cout << endl << endl;
