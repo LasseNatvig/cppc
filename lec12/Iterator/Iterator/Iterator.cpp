@@ -38,7 +38,7 @@ int main() {
 		for (auto e : v) cout << e << " ";
 		cout << endl;
 		//vector<int>::iterator it;
-		//it[2] = 999;  // runtime error, since it was not initialized
+		//it[2] = 999;  // runtime error, since the iterator it was not initialized
 		vector<int>::iterator it = v.begin();
 		it[2] = 999; // random access iterator
 		for (auto e : v) cout << e << " ";

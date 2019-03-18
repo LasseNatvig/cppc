@@ -27,6 +27,7 @@ int main() {
 		foodPrices.erase(it); // Bread found, erase by iterator it
 	}
 	foodPrices.erase("Coke");
+	foodPrices.erase("Solo");  // erase on non-existing pair is harmless
 	cout << foodPrices["Banana"] << endl; // NOTE, reading missing element inserts!
 	print(foodPrices);
 
