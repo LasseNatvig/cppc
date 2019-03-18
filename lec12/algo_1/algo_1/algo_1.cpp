@@ -15,7 +15,7 @@ void search(vector<int>& v, int x) {
 // generic search and print
 template <typename T, typename E>
 void genSearchPrint(const T& container, const E& elt) {
-	auto it = find(container.begin(), container.end(), elt);
+	auto it = find(container.begin(), container.end(), elt);	
 	if (it != container.end()) {
 		cout << "we found " << *it << endl;
 	}
