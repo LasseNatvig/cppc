@@ -4,6 +4,8 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include<string>
+
 using namespace std;
 
 struct PrintGE {// Greater or Equal
@@ -20,6 +22,10 @@ struct PrintGE {// Greater or Equal
 
 void print(const int& n) {
 	cout << " " << n;
+}
+
+int myFunc(int a, int b) {
+	return ((a / 100) + b);
 }
 
 int main() {
@@ -49,17 +55,41 @@ int main() {
 		for_each(dest.begin(), dest.end(), print);
 		cout << '\n';	
 	}
+	cout << endl;
 
 	{// Part 4, transform
-	 
+		string s  = "hello";
+		cout << "s before: " << s;
+		transform(s.begin(), s.end(), s.begin(), toupper);
+		cout << " and after: " << s;
+		cout << endl;
+
+		vector<int> v1{ 1000, 2000, 10000, 20000 };
+		vector<int> v2{ 3, 9, 21, 64 };
+		transform(v1.begin(), v1.end(), v2.begin(), v1.begin(), myFunc);
+		for (auto e : v1) cout << e << " ";
+		cout << endl;
+
 	}
 
+	{
+		vector<int> s1{ 10, 20, 30, 40, 50 };
+		vector<int> s2{ 40, 50, 60, 70};
+		vector<int> res(s1.size()+s2.size());
+		set_union(s1.begin(), s1.end(), s2.begin(), s2.end(), res.begin());
+		for (auto e : res) cout << e << " "; cout << endl;
+		res.clear(); 
 
-	{// Part 5, sort
-		// maybe in a separate file
+		res.resize(min(s1.size(), s2.size()));
+		set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(), res.begin());
+		for (auto e : res) cout << e << " "; cout << endl;
+		res.clear();
+
+		res.resize(s1.size());
+		set_difference(s1.begin(), s1.end(), s2.begin(), s2.end(), res.begin());
+		for (auto e : res) cout << e << " "; cout << endl;
+
 	}
-
-
 
 	return 0;
 }
