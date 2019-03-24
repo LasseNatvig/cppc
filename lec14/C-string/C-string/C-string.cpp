@@ -34,7 +34,7 @@ int main() {
 	cout << "d after = " << d << endl;
 
 	cout << "\n*** C-string concatenation\n";
-	char s1[] = "Ole";  
+	char s1[] = "Ole";
 	char s2[] = "Brumm";
 	char s3[20] = "Ole";
 	cout << "s1 = " << s1 << endl << "s2 = " << s2 << endl;
