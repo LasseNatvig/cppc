@@ -74,7 +74,7 @@ int main() {
 
 	{
 		vector<int> s1{ 10, 20, 30, 40, 50 };
-		vector<int> s2{ 40, 50, 60, 70};
+		vector<int> s2{             40, 50, 60, 70};
 		vector<int> res(s1.size()+s2.size());
 		set_union(s1.begin(), s1.end(), s2.begin(), s2.end(), res.begin());
 		for (auto e : res) cout << e << " "; cout << endl;
