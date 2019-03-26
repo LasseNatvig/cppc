@@ -11,14 +11,29 @@ using namespace std;
 struct PrintGE {// Greater or Equal
 	PrintGE(int v) : value{ v } { }
 	int value;
-	bool operator()(int x) {
+	// This version was used in the lecture tuesday 26/3 but the return type is not needed here
+	//bool operator()(int x) {
+	//	if (x >= value) {
+	//		cout << " " << x;
+	//		return true;
+	//	}
+	//	else return false;
+	//}
+	void operator()(int x) {
 		if (x >= value) {
 			cout << " " << x;
-			return true;
 		}
-		else return false;
 	}
 };
+
+// This version was used in the lecture tuesday 26/3 but the return type is not needed here
+//bool operator()(int x) {
+//	if (x >= value) {
+//		cout << " " << x;
+//		return true;
+//	}
+//	else return false;
+//}
 
 void print(const int& n) {
 	cout << " " << n;
