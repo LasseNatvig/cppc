@@ -1,7 +1,18 @@
-#include "std_lib_facilities.h"
+//#include "std_lib_facilities.h"
+#include<iostream>
+using namespace std;
 
+void func(const char* Cstr) {
+	if (*Cstr != '\0') { 
+		func(Cstr + 1); 
+		cout << *Cstr; 
+	}
+}
 
-
+int main() {
+	func("aaa123");
+	return 0;
+}
 
 //int main() {
 //	//cout << dec << 1234 << "\t(decimal)\n"
