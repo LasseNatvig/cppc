@@ -8,14 +8,16 @@ using namespace std;
 struct ListNode {
 	int data;
 	ListNode* next;
-	ListNode(int i) : data{ i }, next{ nullptr } {}
+	ListNode(int i) : data{ i }, 
+		next{ nullptr } {}
 };
 
 struct TreeNode {
 	int data;
 	TreeNode* left;
 	TreeNode* right;
-	TreeNode(int i) : data{ i }, left{ nullptr }, right{ nullptr } {}
+	TreeNode(int i) : data{ i }, 
+		left{ nullptr }, right{ nullptr } {}
 };
 
 ListNode* buildList(vector<int>& v) {
@@ -34,44 +36,6 @@ ListNode* buildList(vector<int>& v) {
 	}
 	return first;
 }
-
-void insertNode(int i, TreeNode* root) {  // Note reference to pointer
-
-	if (i < root->data) {
-		if (root->left == nullptr) {
-			root->left = new TreeNode{ i };
-		}
-		else {
-			insertNode(i, root->left);
-		}
-	}
-	else {
-		if (root->right == nullptr) {
-			root->right = new TreeNode{ i };
-		}
-		else {
-			insertNode(i, root->right);
-		}
-	}
-}
-
-TreeNode* buildTree(vector<int>& v) { // assumes at least one element
-	TreeNode* root = new TreeNode(v[0]);
-
-	for (unsigned int i = 1; i < v.size(); i++) { // for all elements in vector 
-		insertNode(v[i], root);
-	}
-	return root;
-}
-
-void printTree(TreeNode* root) {
-	if (root != nullptr) {
-		printTree(root->left);
-		cout << root->data << " ";
-		printTree(root->right);
-	}
-}
-
 void printList(ListNode* l) {
 	ListNode* n = l;
 	cout << "List: ";
@@ -89,13 +53,47 @@ void printReverseList(ListNode* l) {
 	if (l == nullptr) {
 		cout << "Reverse list: ";
 		return;
-	} 
+	}
 	else {
 		cout << "Node: " << l->data << endl; // debug
 		printReverseList(l->next);
 		cout << l->data << " ";
 	}
 }
+
+void insertNode(int i, TreeNode* root) {  
+	if (i < root->data) {
+		if (root->left == nullptr) {
+			root->left = new TreeNode{ i };
+		}
+		else { insertNode(i, root->left); }
+	}
+	else {
+		if (root->right == nullptr) {
+			root->right = new TreeNode{ i };
+		}
+		else { insertNode(i, root->right); }
+	}
+}
+
+TreeNode* buildTree(vector<int>& v) { 
+	// assumes at least one element
+	TreeNode* root = new TreeNode(v[0]);
+	for (unsigned int i = 1; i < v.size(); i++) { 
+		// for all elements in vector 
+		insertNode(v[i], root);
+	}
+	return root;
+}
+
+void printTree(TreeNode* root) {
+	if (root != nullptr) {
+		printTree(root->left);
+		cout << root->data << " ";
+		printTree(root->right);
+	}
+}
+
 
 int main() {
 	vector<int> v{ 40, 20, 50, 10, 60, 30 };
@@ -104,7 +102,7 @@ int main() {
 	printReverseList(list);
 	
 	TreeNode* root = buildTree(v);
-	cout << endl  << "Simple binary tree: ";
+	cout << endl << endl << "Binary tree: ";
 	printTree(root);
 	return 0;
 }

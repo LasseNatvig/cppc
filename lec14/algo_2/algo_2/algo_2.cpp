@@ -12,6 +12,7 @@ struct PrintGE {// Greater or Equal
 	PrintGE(int v) : value{ v } { }
 	int value;
 	// This version was used in the lecture tuesday 26/3 but the return type is not needed here
+	// since the printout is done in the function
 	//bool operator()(int x) {
 	//	if (x >= value) {
 	//		cout << " " << x;
