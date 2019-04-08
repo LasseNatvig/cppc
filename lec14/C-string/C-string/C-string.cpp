@@ -40,11 +40,11 @@ int main() {
 	cout << "s1 = " << s1 << endl << "s2 = " << s2 << endl;
 
 #ifdef MS_VS
-	strcat_s(s3, " ");
-	strcat_s(s3, s2);
+	strcat_s(s3, " ");  // appends a blank to s3
+	strcat_s(s3, s2); // appends s2 to s3
 	cout << "s3 = " << s3 << endl;
 
-	strncat_s(s3, s2, 3);  // concatenate n chars
+	strncat_s(s3, s2, 3);  // concatenate n chars, here 3 chars from s2 to s3
 	cout << "s3 = " << s3 << endl;
 #else
 	strcat(s3, " ");
@@ -69,13 +69,6 @@ int main() {
 	cout << "\n *** Search after string\n";
 	cout << "strstr(s3, \"ummB\") = "; // note that specifying " in output must be "protected (escaped)" by the \-char  
 	cout << strstr(s3, "ummB") << endl;
-
-	cout << "\n *** Reverse a C-string, char by char\n";
-	char str[10] = "Brummer";
-	for (int i = 0, j = strlen(str) - 1; i < j; i++, j--) {
-		swap(str[i], str[j]);
-	}
-	cout << str << endl;
 
 	char englishAlphabet[27];
 	for (char c = 'a'; c <= 'z'; c++) {
