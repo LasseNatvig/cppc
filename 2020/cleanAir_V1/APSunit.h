@@ -4,7 +4,7 @@
 #include "Simple_window.h" 
 
 // The following constants will be placed in a config-file in a later version of cleanAir
-const string cityFileName = "../Trondheim.jpg";
+const string cityFileName = "Trondheim.jpg";
 constexpr int winWidth = 1310;  // is set wide enough to have the next button outside this actual city map
 constexpr int winHeigth = 900;  // two lines below shows how adjacent string literals are concatenated by the compiler 
 const string cityWinTitle = "Apparatur for måling av luftkvalitet i Trondheim"
