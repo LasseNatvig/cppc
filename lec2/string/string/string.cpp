@@ -10,20 +10,22 @@ int main() {
 	string s3 = s1 + " " + name + s2; // + is defined as a concatenate operator for string
 	cout << "1) " << s3 << endl;  
 
-	// We want to insert a blank after the comma, what is its position?
-	int pos = s1.length() + 1 + name.length() + 1;
-	s3.insert(pos, " ");
-	cout << "2) " << s3 << "\n";
+	{
+		// We want to insert a blank after the comma, what is its position?
+		int pos = s1.length() + 1 + name.length() + 1;
+		s3.insert(pos, " ");
+		cout << "2) " << s3 << "\n";
 
-	cout << "The length of string s3 as int: " << s3.length() <<
-		" and as string: " << to_string(s3.length()) << endl;
+		cout << "The length of string s3 as int: " << s3.length() <<
+			" and as string: " << to_string(s3.length()) << endl;
 
-	cout << "memberfunction size() also give a strings length, see: " << s3.size() << endl;
+		cout << "memberfunction size() also give a strings length, see: " << s3.size() << endl;
 
-	double d = stod("17.18");
-	int i = stoi("190");
-	long l = stol("171845679");
-	cout << d << " | " << i << " | " << l << endl;
+		double d = stod("17.18");
+		int i = stoi("190");
+		long l = stol("171845679");
+		cout << d << " | " << i << " | " << l << endl;
+	}
 
 	keep_window_open();
 }
