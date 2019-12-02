@@ -39,7 +39,7 @@ void List::add(string data) {
 List::~List() {
 	while (head != nullptr) {
 		Node* prev = head; // previous node
-		head = head->next;
+		head = head->next; // test
 		delete prev;
 		print(); // debug, show correct destruction of one Node
 	}
